@@ -1,20 +1,25 @@
-import React, { useState, useEffect, useContext, useRef } from "react";
+import React, { useState, useEffect, useContext, useRef,useCallback } from "react";
 // import Logo from "../../images/logo.svg";
 // import MobileLogo from "../../images/logo-icon.png";
 import Dots from "../../images/dots.png";
-import { FiMenu, FiX } from "react-icons/fi";
+// import { FiMenu, FiX } from "react-icons/fi";
 import { Link } from "react-router-dom";
 import "./Navbar.css";
-import modal, { web3Modal } from "../../modal";
+import web3Modal from "../../modal";
 import { NetworkContext } from "../../context/NetworkContext";
+import { ConnectContext } from "../../context/ConnectContext";
 import useOnClickOutside from "../../hooks/useOnClickOutside";
+import { truncateAddress } from "../../utils";
+import { ethers } from "ethers";
 
 const Navbar = () => {
+  // eslint-disable-next-line no-unused-vars
   const [open, setOpen] = useState(false);
-  const [instance, setInstance] = useState();
-  const [provider, setProvider] = useState();
+  // const [instance, setInstance] = useState();
+  // const [provider, setProvider] = useState();
   const [error, setError] = useState();
   const [account, setAccount] = useContext(NetworkContext);
+  const [provider,setProvider] = useContext(ConnectContext)
   const [modalMobile, showModal] = useState(false);
   const [width, setWidth] = useState(window.innerWidth);
   let breakpoint = 1000;
@@ -22,54 +27,56 @@ const Navbar = () => {
   const ref = useRef();
   useOnClickOutside(ref, () => showModal(false));
 
-  const handleClick = () => {
-    setOpen(!open);
-  };
+  // const handleClick = () => {
+  //   setOpen(!open);
+  // };
 
   const closeMenu = () => {
     setOpen(false);
   };
 
-  const connectWallet = async () => {
+  const connectWallet = useCallback(async () => {
     try {
       console.log("Wallet connect called");
       const instance = await web3Modal().connect();
-      setInstance(instance);
-      let provider = await modal();
+      // setInstance(instance);
+      let provider = new ethers.providers.Web3Provider(instance);
       setProvider(provider);
       const accounts = await provider.listAccounts();
       if (accounts) {
         setAccount(accounts[0]);
-        // window.location.reload();
+        // window.location.reload(); 
       }
     } catch (error) {
       console.error(error);
       setError(error);
     }
-  };
-  const refreshState = () => {
-    setAccount();
-  };
+  },[setAccount, setProvider]);
 
-  const disconnectWallet = async () => {
+  const refreshState = useCallback(() => {
+    setAccount();
+  },[setAccount]);
+
+  const disconnectWallet = useCallback(async () => {
     try {
       console.log("Wallet disconnect called");
-      await web3Modal().clearCachedProvider();
+      web3Modal().clearCachedProvider();
+      // setAccount([])
       refreshState();
-      // window.location.reload();
+      window.location.reload();
     } catch (error) {
       console.error(error);
     }
-  };
+  },[refreshState]);
 
   useEffect(() => {
     if (web3Modal().cachedProvider) {
       connectWallet();
     }
-  }, []);
+  }, [connectWallet]);
 
   useEffect(() => {
-    if (instance?.on) {
+    if (provider?.on) {
       const handleAccountsChanged = (accounts) => {
         console.log("accountsChanged", accounts);
         if (accounts) setAccount(accounts[0]);
@@ -80,17 +87,17 @@ const Navbar = () => {
         disconnectWallet();
       };
 
-      instance.on("accountsChanged", handleAccountsChanged);
-      instance.on("disconnect", handleDisconnect);
+      provider.on("accountsChanged", handleAccountsChanged);
+      provider.on("disconnect", handleDisconnect);
 
       return () => {
-        if (instance.removeListener) {
-          instance.removeListener("accountsChanged", handleAccountsChanged);
-          instance.removeListener("disconnect", handleDisconnect);
+        if (provider.removeListener) {
+          provider.removeListener("accountsChanged", handleAccountsChanged);
+          provider.removeListener("disconnect", handleDisconnect);
         }
       };
     }
-  }, [instance]);
+  }, [disconnectWallet, error, provider, setAccount]);
 
   useEffect(()=>{
     const handleLogo = ()=> setWidth(window.innerWidth)
@@ -147,8 +154,8 @@ const Navbar = () => {
         <div className="header-right">
           <div className="connect_button">
             {account ? (
-              <button href="" className="connect" onClick={disconnectWallet}>
-                Disconnect
+              <button href="" className="connect" onClick={disconnectWallet} style={{fontSize:'larger', fontStyle:'strong'}}>
+                {truncateAddress(account)}
               </button>
             ) : (
               <button href="" className="disconnect" onClick={connectWallet}>

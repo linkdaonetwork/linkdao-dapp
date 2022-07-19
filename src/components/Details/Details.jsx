@@ -5,10 +5,11 @@ import "./Details.css";
 import coinLogo from "../../images/coinlogo.svg";
 import { approve,checkApprove,getAccountBalance} from "../../contracts/busd";
 // import {getDeposit,claimInitialToken,claimToken,checkDeposit,checkBalance,checkAmount} from '../../contracts/seed'
-import { getUserDetails,claimALL } from "../../contracts/locker";
+import { getUserDetails,claimALL } from "../../contracts/vesting";
 import modal from "../../modal";
 import  {address} from '../../address'
 import { NetworkContext } from "../../context/NetworkContext";
+import {ConnectContext} from '../../context/ConnectContext'
 import {ethers} from 'ethers'
 import website from '../../images/website.png'
 import twitterb from '../../images/twitterb.png'
@@ -24,7 +25,8 @@ const Details = () => {
   const [account, setAccount] = useContext(NetworkContext);
   const [subAmount,setSubAmount] = useState(0)
   const [available,setAvailable] = useState(0)
-
+  const [provider] = useContext(ConnectContext)
+ 
 //   const handleCheckApprove = async () => {
 //     // let provider = await modal();
 //     // const accounts = await provider.listAccounts();
@@ -120,12 +122,13 @@ const Details = () => {
 
   const handleAmount = async()=>{
     // console.log(account)
-      let data = await getUserDetails(account)
+      let data = await getUserDetails(account,provider)
     // console.log(data)
     let subamt = ethers.utils.formatEther(data[0])
     setSubAmount(parseFloat(subamt*0.25).toFixed(2))
     let availamt = subamt - ethers.utils.formatEther(data[2])
     setAvailable(parseFloat(availamt).toFixed(2))
+    // console.log(data)
   }
 
   useEffect(()=>{
@@ -264,7 +267,7 @@ from various liquidity pools (LPs),‌ ‌automated market making (AMM) projects
                     <br />
                     Private Round: $0.50 - 10% unlocked at TGE. The rest 90% will be unlocked monthly in the next 6 months. 
                     <br />
-                    Public Round: $0.75 - 10% unlocked at TGE. The rest 90% will be unlocked monthly in the next 3 months.
+                    Public Round: $0.75 - 20% unlocked at TGE. The rest 80% will be unlocked monthly in the next 4 months.
                     <br />
                     <br />
                     <span className="text_white">DEX Listing:</span> Pancakeswap
@@ -360,7 +363,7 @@ from various liquidity pools (LPs),‌ ‌automated market making (AMM) projects
                         </div>
                         {/* <div className="claim_box"> */}
                         {/* <div className="approve" onClick={handleDeposit}> */}
-                        <div className="approve" onClick={()=>claimALL()}>
+                        <div className="approve" onClick={()=>claimALL(provider)}>
                           Claim
                         {/* </div> */}
                           {/* <div className="claim" onClick={handleInitialClaim}>

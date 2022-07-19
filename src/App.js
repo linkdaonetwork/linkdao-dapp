@@ -10,21 +10,26 @@ import Airdrop from "./components/Airdrop/Airdrop";
 import Farms from "./components/Farms/Farms";
 import Pools from "./components/Pools/Pools";
 import { NetworkProvider } from "./context/NetworkContext";
+import { ConnectProvider } from "./context/ConnectContext";
+import Public from "./components/Public/Public";
 
 const App = () => {
   return (
     <BrowserRouter>
       <NetworkProvider>
-        <Navbar />
-        <Routes>
-          <Route path="/" element={<Launchpad />} />
-          <Route path="/details" element={<Details />} />
-          <Route path="/Private" element={<Private />} />
-          <Route path="/Airdrop" element={<Airdrop />} />
-          <Route path="/Farms" element={<Farms />} />
-          <Route path="/Pools" element={<Pools />} />
-        </Routes>
-        <Footer />
+        <ConnectProvider>
+          <Navbar />
+          <Routes>
+            <Route path="/" element={<Launchpad />} />
+            <Route path="/details" element={<Details />} />
+            <Route path="/Private" element={<Private />} />
+            <Route path="/Public" element={<Public />} />
+            <Route path="/Airdrop" element={<Airdrop />} />
+            <Route path="/Farms" element={<Farms />} />
+            <Route path="/Pools" element={<Pools />} />
+          </Routes>
+          <Footer />
+        </ConnectProvider>
       </NetworkProvider>
     </BrowserRouter>
   );

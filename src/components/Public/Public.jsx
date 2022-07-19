@@ -1,141 +1,121 @@
-import React, { useState, useEffect,useContext } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "../Launchpad/Launchpad.css";
-import "./Private.css";
+import "./Public.css";
 import coinLogo from "../../images/coinlogo.svg";
 import { approve,checkApprove,getAccountBalance} from "../../contracts/busd";
-import {getDeposit,claimInitialToken,claimToken,checkDeposit,checkBalance,checkAmount} from '../../contracts/private'
-import modal from "../../modal";
-import  {privateAddress} from '../../address'
+import {getDeposit,claimInitialToken,claimToken,checkDeposit,checkBalance,checkAmount} from '../../contracts/public'
+// import modal from "../../modal";
+import  {publicAddress} from '../../address'
 import Countdown from "react-countdown";
 import website from '../../images/website.png'
 import twitterb from '../../images/twitterb.png'
 import teleb from '../../images/teleb.png'
 import mediumb from '../../images/mediumb.png'
-import { getUserDetails } from "../../contracts/privateVesting";
-import { NetworkContext } from "../../context/NetworkContext";
-import {ConnectContext} from '../../context/ConnectContext'
-import {ethers} from 'ethers'
+import { useContext } from "react";
+import { ConnectContext } from "../../context/ConnectContext";
 
 
-const Private = () => {
-  const [status, setStatus] = useState(true);
+const Public = () => {
+  const [status, setStatus] = useState(false);
   const [value,setValue]  = useState(0)
-  const [deposit,setDeposit] = useState(200000)
+  const [deposit,setDeposit] = useState(0)
   const [balance,setBalance] = useState(0)
   const [amount,setAmount] = useState(0)
-  const [account, setAccount] = useContext(NetworkContext);
   const [provider] = useContext(ConnectContext)
-  const [subAmount,setSubAmount] = useState(0)
-  const [available,setAvailable] = useState(0)
 
-//   const handleCheckApprove = async () => {
-//     let provider = await modal();
-//     const accounts = await provider.listAccounts();
-//     if (accounts) {
-//       let value = await checkApprove(accounts[0],privateAddress);
-//       console.log(value.toString());
-//       if (parseInt(value.toString()) > 0) setStatus(true);
-//       else setStatus(false);
-//       return status;
-//     }
-//   };
+  const handleCheckApprove = async () => {
+    // let provider = await modal();
+    const accounts = await provider.listAccounts(); 
+    if (accounts) {
+      let value = await checkApprove(accounts[0],publicAddress,provider);
+      console.log(value.toString());
+      if (parseInt(value.toString()) > 0) setStatus(true);
+      else setStatus(false);
+      return status;
+    }
+  };
 
-//   const handleApprove = async () => {
-//     let bool = await handleCheckApprove();
-//     console.log(bool);
-//     if (!bool) {
-//       let res = await approve(privateAddress);
-//       let confirmation = res.wait();
-//       if (confirmation.blockNumber) setStatus(true);
-//     }
-//   };
-//   const handleDeposit = async () => {
-//     let bool = await handleCheckApprove();
-//     console.log(bool);
-//     if (bool && value>=10) {
-//       // if(handleCheckApprove()){
-//       getDeposit(value);
-//     }
-//   };
+  const handleApprove = async () => {
+    let bool = await handleCheckApprove();
+    console.log(bool);
+    if (!bool) {
+      let res = await approve(publicAddress,provider);
+      let confirmation = res.wait();
+      if (confirmation.blockNumber) setStatus(true);
+    }
+  };
+  const handleDeposit = async () => {
+    let bool = await handleCheckApprove();
+    // console.log(bool);
+    if (bool && value>=10) {
+      // if(handleCheckApprove()){
+      getDeposit(value,provider);
+    }
+  };
 
-//   const handleInitialClaim = async()=>{
-//     let provider = await modal();
-//     const accounts = await provider.listAccounts();
-//    if(accounts) {
-//      let result = await claimInitialToken(accounts[0])
-//      console.log(result)
-//   }
-// }
-//   const handleClaim = async()=>{
-//     let provider = await modal();
-//     const accounts = await provider.listAccounts();
-//    if(accounts) {
-//       claimToken(accounts[0])
+  const handleInitialClaim = async()=>{
+    // let provider = await modal();
+    const accounts = await provider.listAccounts();
+   if(accounts) {
+     let result = await claimInitialToken(accounts[0],provider)
+     console.log(result)
+  }
+}
+  const handleClaim = async()=>{
+    // let provider = await modal();
+    const accounts = await provider.listAccounts();
+   if(accounts) {
+      claimToken(accounts[0],provider)
     
-//   }
-//   }
-
-//   const handlecheckDeposit = async()=>{
-//     // let provider = await modal();
-//     // const accounts = await provider.listAccounts();
-//   //  if(accounts) {
-//     let sum = await checkDeposit()
-//     // setDeposit(sum)
-//   //  }
-//   }
-
-//   const handleBalance = async()=>{
-//     let provider = await modal();
-//     const accounts = await provider.listAccounts();
-//    if(accounts) {
-//     let sum = await checkBalance(accounts[0])
-//     setBalance(sum)
-//    }
-//   }
-
-//   const handleAmount = async()=>{
-//     let provider = await modal();
-//     const accounts = await provider.listAccounts();
-//    if(accounts) {
-//     let sum = await checkAmount(accounts[0])
-//     setAmount(sum)
-//    }
-//   }
-  
-//   const handleAccountBalance = async()=>{
-//     let provider = await modal();
-//     const accounts = await provider.listAccounts();
-//    if(accounts) {
-//     let sum = await getAccountBalance(accounts[0])
-//     setValue(sum)
-//    }
-//   }
-
-//   useEffect(() => {
-//     // handleCheckApprove();
-//     handlecheckDeposit()
-//     handleBalance()
-//     handleAmount()
-//   });
-  
-  let innerWidth = ((deposit/200000) *100).toString()
-  let date = new Date(1653919200000) // live date
-
-  const handleAmount = async()=>{
-    // console.log(account)
-      let data = await getUserDetails(account,provider)
-    // console.log(data)
-    let subamt = ethers.utils.formatEther(data[0])
-    setSubAmount(parseFloat(subamt*0.25).toFixed(2))
-    let availamt = subamt - ethers.utils.formatEther(data[2])
-    setAvailable(parseFloat(availamt).toFixed(2))
-    // console.log(data)
+  }
   }
 
-  useEffect(()=>{
+  const handlecheckDeposit = async()=>{
+    // let provider = await modal();
+    // const accounts = await provider.listAccounts();
+  //  if(accounts) {
+    let sum = await checkDeposit(provider)
+    setDeposit(sum)
+  //  }
+  }
+
+  const handleBalance = async()=>{
+    // let provider = await modal();
+    const accounts = await provider.listAccounts();
+   if(accounts) {
+    let sum = await checkBalance(accounts[0],provider)
+    setBalance(sum)
+   }
+  }
+
+  const handleAmount = async()=>{
+    // let provider = await modal();
+    const accounts = await provider.listAccounts();
+   if(accounts) {
+    let sum = await checkAmount(accounts[0],provider)
+    setAmount(sum)
+   }
+  }
+  
+  const handleAccountBalance = async()=>{
+    // let provider = await modal();
+    const accounts = await provider.listAccounts();
+   if(accounts) {
+    let sum = await getAccountBalance(accounts[0],provider)
+    setValue(sum)
+   }
+  }
+
+  useEffect(() => {
+    handleCheckApprove();
+    handlecheckDeposit()
+    handleBalance()
     handleAmount()
-  })
+  });
+  
+  let innerWidth = ((deposit/100000) *100).toString()
+  let date = new Date(1653919200000) // live date
   return (
     <>
       <div className="el-main">
@@ -198,7 +178,7 @@ from various liquidity pools (LPs),‌ ‌automated market making (AMM) projects
                   </div>
                   <div className="hart-cap item-column">
                     <div className="cap-title column-title"> Hard Cap</div>
-                    <div className="cap-value column-value"> 400,000 LKD </div>
+                    <div className="cap-value column-value"> 666,667 LKD </div>
                   </div>
                 </div>
                 <div className="supported-coin item-column">
@@ -208,7 +188,7 @@ from various liquidity pools (LPs),‌ ‌automated market making (AMM) projects
                   </div>
                   <div className="theme_color column-value"> BUSD </div>
                   <div className="exchange-rate column-value">
-                    <span> 1 LKD = 0.50 BUSD / 1 BUSD = 2.00 LKD</span>
+                    <span> 1 LKD = 0.75 BUSD / 1 BUSD = 1.33 LKD</span>
                   </div>
                 </div>
 
@@ -223,14 +203,14 @@ from various liquidity pools (LPs),‌ ‌automated market making (AMM) projects
                   </div>
                 </div>
                 <div className="item-column">
-                  <div className="column-title" style={{marginBottom: '15px'}}> Allocation: <span className="amount_color">10-25,000 BUSD</span><br/> </div>
+                  <div className="column-title" style={{marginBottom: '15px'}}> Allocation: <span className="amount_color">20-5,000 BUSD</span><br/> </div>
                   <div className="column-title"> Lock-up rules </div>
                   <div className="column-value">
                     <span style={{ lineHeight: "1.5px" }}>
                       
                       {/*Vesting time and rules:*/}
                       
-                      Private Round - 10% unlocked at TGE. The rest 90% will be unlocked monthly in the next 6 months.
+                      Public Round - 20% unlocked at TGE. The rest 80% will be unlocked monthly in the next 4 months.
                     </span>
                   </div>
                 </div>
@@ -284,10 +264,10 @@ from various liquidity pools (LPs),‌ ‌automated market making (AMM) projects
                   <img src={coinLogo} alt="" className="logo" />
                   <div>
                     <div className="ido-tags">
-                      <div className="status" style={{backgroundColor:"rgb(177, 33, 33)"}}><div className="perch_detail moving_image">
+                      <div className="status"><div className="perch_detail moving_image">
                             <div className="perch_center_detail"></div>
                           </div>
-                        <span>Ended</span>
+                        <span>Live</span>
                       </div>
                       <div className="chain-info">
                         <img src="" alt="" />
@@ -304,7 +284,7 @@ from various liquidity pools (LPs),‌ ‌automated market making (AMM) projects
                         <div className="amount-value">
                           <div className="start-time time">
                           <div className="perch"><div className="perch-center"></div></div>
-                            2022.05.30 02:00 PM UTC
+                            2022.07.14 06:00 AM UTC
                           </div>
                           <div className="end-time time">
                             2022.04.12 09:00 AM UTC
@@ -315,7 +295,7 @@ from various liquidity pools (LPs),‌ ‌automated market making (AMM) projects
                       <div className="amount-value">
                         <div className="progress-desc">
                           <span> {deposit} BUSD</span>
-                          <span> 200,000 BUSD</span>
+                          <span> 500,000 BUSD</span>
                         </div>
                         <div className="progress-plan progress-status2">
                           <div
@@ -350,43 +330,38 @@ from various liquidity pools (LPs),‌ ‌automated market making (AMM) projects
                         </div> */}
                       </div>
                       <div className="amount-title"  style={{marginTop: '25px'}}>My subscription amount
-                        <div className="amount-value">{subAmount}</div>
+                        <div className="amount-value">{amount}</div>
                       </div>
                       <div className="amount-title"  style={{marginTop: '25px'}}>Available LKD
-                        <div className="amount-value">{available}</div>
+                        <div className="amount-value">{balance}</div>
                       </div>
                       {status ? (
                         <>
                         <div className="amount-title"  style={{marginTop: '25px'}}>BUSD</div>
                         <div className="ct1-input">
                           <input type="text" placeholder="Enter deposit amount" value={value} onChange={e=>setValue(e.target.value)} />
-                          {/* <span onClick={handleAccountBalance} className="ct1-max"> */}
-                          <span className="ct1-max">
-                             MAX</span>
+                          <span onClick={handleAccountBalance} className="ct1-max"> MAX</span>
                         </div>
-                        {/* <div className="approve" onClick={handleDeposit} > */}
-                        <div className="approve" style={{background:"rgb(122, 119, 110)"}}>
+                        <div className="approve" onClick={handleDeposit}>
+                        {/* <div className="approve" style={{background:"rgb(122, 119, 110)"}}> */}
                           Deposit
                         </div>
-                        {/* <div className="claim_box"/> */}
-                          {/* <div className="claim" onClick={handleInitialClaim}> */}
-                          {/* <div className="claim" style={{background:"rgb(122, 119, 110)"}}>
+                        <div className="claim_box">
+                          <div className="claim" onClick={handleInitialClaim}>
+                          {/* <div className="claim" style={{background:"rgb(122, 119, 110)"}}> */}
                             TGE Claim
-                          </div> */}
-                        <div className="approve">
-
-                        {/* <div className="claim" onClick={handleClaim} style={{background:"rgb(122, 119, 110)"}}> */}
+                          </div>
+                        <div className="claim" onClick={handleClaim}>
                         {/* <div className="claim" style={{background:"rgb(122, 119, 110)"}}> */}
                             Claim
-                          </div>
-                          {/* </div> */}
+                          </div></div>
                           
                           
                           
                           </>
                       ) : (
-                        // <div className="approve" onClick={handleApprove}>
-                        <div className="approve disabled" >
+                        <div className="approve" onClick={handleApprove}>
+                        {/* <div className="approve disabled" > */}
                           Approve
                         </div>
                       )}
@@ -402,4 +377,4 @@ from various liquidity pools (LPs),‌ ‌automated market making (AMM) projects
   );
 };
 
-export default Private;
+export default Public;
