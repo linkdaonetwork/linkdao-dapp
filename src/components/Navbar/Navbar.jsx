@@ -130,11 +130,6 @@ const Navbar = () => {
           </Link>
           <div className="nav">
             <div className="n-item n-margin">
-              <Link to="/" className="nav-link" onClick={closeMenu}>
-                Launchpad
-              </Link>
-            </div>
-            <div className="n-item n-margin">
               <Link to="/Farms" className="nav-link" onClick={closeMenu}>
                 Farms
               </Link>
@@ -145,10 +140,15 @@ const Navbar = () => {
               </Link>
             </div>
             <div className="n-item n-margin">
+              <Link to="/" className="nav-link" onClick={closeMenu}>
+                Launchpad
+              </Link>
+            </div>
+            {/* <div className="n-item n-margin">
               <Link to="/Airdrop" className="nav-link">
                 Airdrop
               </Link>
-            </div>
+            </div> */}
           </div>
         </div>
         <div className="header-right">

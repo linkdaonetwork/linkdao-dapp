@@ -12,7 +12,7 @@ import website from '../../images/website.png'
 import twitterb from '../../images/twitterb.png'
 import teleb from '../../images/teleb.png'
 import mediumb from '../../images/mediumb.png'
-import { getUserDetails } from "../../contracts/privateVesting";
+import { getUserDetails,claimALL } from "../../contracts/privateVesting";
 import { NetworkContext } from "../../context/NetworkContext";
 import {ConnectContext} from '../../context/ConnectContext'
 import {ethers} from 'ethers'
@@ -125,9 +125,9 @@ const Private = () => {
   const handleAmount = async()=>{
     // console.log(account)
       let data = await getUserDetails(account,provider)
-    // console.log(data)
+    console.log(data)
     let subamt = ethers.utils.formatEther(data[0])
-    setSubAmount(parseFloat(subamt*0.25).toFixed(2))
+    setSubAmount(parseFloat(subamt*0.5).toFixed(2))
     let availamt = subamt - ethers.utils.formatEther(data[2])
     setAvailable(parseFloat(availamt).toFixed(2))
     // console.log(data)
@@ -373,7 +373,7 @@ from various liquidity pools (LPs),‌ ‌automated market making (AMM) projects
                           {/* <div className="claim" style={{background:"rgb(122, 119, 110)"}}>
                             TGE Claim
                           </div> */}
-                        <div className="approve">
+                        <div className="approve" onClick={()=>claimALL(provider)}>
 
                         {/* <div className="claim" onClick={handleClaim} style={{background:"rgb(122, 119, 110)"}}> */}
                         {/* <div className="claim" style={{background:"rgb(122, 119, 110)"}}> */}

@@ -53,7 +53,7 @@ const Launchpad = () => {
   // let contract = new ethers.contract(address,seedABI,provider)
   let innerWidth = (100).toString()
   let innerWidth2 = ((privateDeposit / 100000) * 100).toString()
-  let innerWidth3 = ((publicDeposit / 100000) * 100).toString()
+  let innerWidth3 = ((publicDeposit / 500000) * 100).toString()
   let date = new Date(1653919200000) // live date
   return (
     <>
@@ -61,11 +61,11 @@ const Launchpad = () => {
         <div className="ido">
           <div className="tabs-container">
             <div className="tabs">
-              <div className={toggleState === 1 ? "tab-pan is-active" : "tab-pan"} onClick={() => toggleTab(1)}>Live [1]</div>
+              <div className={toggleState === 1 ? "tab-pan is-active" : "tab-pan"} onClick={() => toggleTab(1)}>Live [0]</div>
               <div className="line-perch"></div>
               <div className={toggleState === 2 ? "tab-pan is-active" : "tab-pan"} onClick={() => toggleTab(2)}>Upcoming [0]</div>
               <div className="line-perch"></div>
-              <div className={toggleState === 3 ? "tab-pan is-active" : "tab-pan"} onClick={() => toggleTab(3)}>Ended [2]</div>
+              <div className={toggleState === 3 ? "tab-pan is-active" : "tab-pan"} onClick={() => toggleTab(3)}>Ended [3]</div>
             </div>
           </div>
           <div className="list">
@@ -304,7 +304,7 @@ const Launchpad = () => {
               </div>
 
             </div>
-            <div className={toggleState === 1 ? "item" : "no-item"}>
+            <div className={toggleState === 3 ? "item" : "no-item"}>
 
               <div className="item-container">
                 <div className="left" style={{ flexDirection: 'row' }}>
@@ -427,12 +427,12 @@ const Launchpad = () => {
               <p>No data yet </p>
 
             </div>
-            {/* <div className={toggleState === 3 ? "empty-item" : "no-item"}>
+            <div className={toggleState === 1 ? "empty-item" : "no-item"}>
 
               <img src={noItem} style={{ width: '85%' }} />
               <p>No data yet </p>
 
-            </div> */}
+            </div>
           </div>
         </div>
       </div>

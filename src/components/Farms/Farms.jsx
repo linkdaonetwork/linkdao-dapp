@@ -5,16 +5,20 @@ import { data } from "../../data/farms";
 const Farms = () => {
   return (
     <>
-      {data.map(({ pair, apy, daily, tvl, network, img1, img2 }) => {
+      {data.map(({ pair, apy, daily, network, img1, img2,address,abi,farm,farmABI },index) => {
         return (
           <Farm
+            key={index}
             pair={pair}
             apy={apy}
             daily={daily}
-            tvl={tvl}
             network={network}
             img1={img1}
             img2={img2}
+            address={address}
+            abi={abi}
+            farm={farm}
+            farmABI={farmABI}
           />
         );
       })}

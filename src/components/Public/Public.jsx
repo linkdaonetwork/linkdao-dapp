@@ -17,7 +17,7 @@ import { ConnectContext } from "../../context/ConnectContext";
 
 
 const Public = () => {
-  const [status, setStatus] = useState(false);
+  const [status, setStatus] = useState(true);
   const [value,setValue]  = useState(0)
   const [deposit,setDeposit] = useState(0)
   const [balance,setBalance] = useState(0)
@@ -108,13 +108,13 @@ const Public = () => {
   }
 
   useEffect(() => {
-    handleCheckApprove();
+    // handleCheckApprove();
     handlecheckDeposit()
     handleBalance()
     handleAmount()
   });
   
-  let innerWidth = ((deposit/100000) *100).toString()
+  let innerWidth = ((deposit/500000) *100).toString()
   let date = new Date(1653919200000) // live date
   return (
     <>
@@ -203,7 +203,7 @@ from various liquidity pools (LPs),‌ ‌automated market making (AMM) projects
                   </div>
                 </div>
                 <div className="item-column">
-                  <div className="column-title" style={{marginBottom: '15px'}}> Allocation: <span className="amount_color">20-5,000 BUSD</span><br/> </div>
+                  <div className="column-title" style={{marginBottom: '15px'}}> Allocation: <span className="amount_color">20-25,000 BUSD</span><br/> </div>
                   <div className="column-title"> Lock-up rules </div>
                   <div className="column-value">
                     <span style={{ lineHeight: "1.5px" }}>
@@ -264,10 +264,10 @@ from various liquidity pools (LPs),‌ ‌automated market making (AMM) projects
                   <img src={coinLogo} alt="" className="logo" />
                   <div>
                     <div className="ido-tags">
-                      <div className="status"><div className="perch_detail moving_image">
+                      <div className="status" style={{backgroundColor:"rgb(177, 33, 33)"}}><div className="perch_detail moving_image">
                             <div className="perch_center_detail"></div>
                           </div>
-                        <span>Live</span>
+                        <span>Ended</span>
                       </div>
                       <div className="chain-info">
                         <img src="" alt="" />
@@ -342,21 +342,28 @@ from various liquidity pools (LPs),‌ ‌automated market making (AMM) projects
                           <input type="text" placeholder="Enter deposit amount" value={value} onChange={e=>setValue(e.target.value)} />
                           <span onClick={handleAccountBalance} className="ct1-max"> MAX</span>
                         </div>
-                        <div className="approve" onClick={handleDeposit}>
-                        {/* <div className="approve" style={{background:"rgb(122, 119, 110)"}}> */}
+                        {/* <div className="approve" onClick={handleDeposit}> */}
+                        <div className="approve" style={{background:"rgb(122, 119, 110)"}}>
                           Deposit
                         </div>
-                        <div className="claim_box">
-                          <div className="claim" onClick={handleInitialClaim}>
+                        {/* <div className="claim_box"> */}
+                          {/* <div className="claim" onClick={handleInitialClaim}> */}
                           {/* <div className="claim" style={{background:"rgb(122, 119, 110)"}}> */}
-                            TGE Claim
-                          </div>
-                        <div className="claim" onClick={handleClaim}>
+                            {/* TGE Claim */}
+                          {/* </div> */}
+                        {/* <div className="claim" onClick={handleClaim}> */}
                         {/* <div className="claim" style={{background:"rgb(122, 119, 110)"}}> */}
+                        {/* <div className="approve" onClick={handleDeposit}> */}
+                        {/* <div className="approve" style={{background:"rgb(122, 119, 110)"}}> */}
+                        <div className="approve" onClick={handleClaim}>
                             Claim
-                          </div></div>
+                          </div>
+                          {/* </div> */}
                           
-                          
+                          <div className="approve" onClick={handleInitialClaim}>
+                            
+                            TGE claim 
+                          </div>
                           
                           </>
                       ) : (

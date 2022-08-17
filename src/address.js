@@ -5,3 +5,5 @@ export const airdrop = "0xF9534F1Cf48e76E73c71cC8F1463AfB2C3C82E60" //linkdao ai
 export const vesting = "0xb78191e68906c78bcD93F50d11001CAEc6F31192" //linkdao vesting mainnet
 export const publicAddress = "0xd0fBDbB74D59C79a6d8E8352473d3829D97Dd4BA" //linkdao locker mainnet
 export const privateVesting = "0x43148a8B840d4953c1a939B677A9AeF1f8079B07" //linkdao vesitng private mainnet
+export const bakerLp = "0x523e4C1F41dFa88e2a5D6761D022F4C6D4CeAe9d" //linkdao lkd-usdt farm mainnet
+export const bakerFarm = "0x5a1d70fbCa8d5B31A03183D8732c7Ab6150D82DF" //linkdao farm mainnet
