@@ -1,17 +1,15 @@
-import React, { useState, useContext ,useEffect} from "react";
+import React, { useState, useContext ,useEffect,useCallback} from "react";
 import "./Farms.css";
 import "./../Private/Private.css";
 import "./../Details/Details.css";
 import { AiFillCaretDown, AiFillCaretUp } from "react-icons/ai";
 import { FiExternalLink } from "react-icons/fi";
-
 /* import ReactSlider from '../Slider' */
 import { NetworkContext } from "../../context/NetworkContext";
 import { ConnectContext } from "../../context/ConnectContext";
 import { approve,balance,checkApprove, getTvl } from "../../contracts/lps";
 import { depositAmount, depositedAmt, harvest, harvestAmt, withdraw } from "../../contracts/farms";
-import axios from 'axios'
-// import { data } from "../../data/farms";
+import { getBusdPrice } from "../../utils";
 
 const Farm = ({ pair, apy, daily, network, img1, img2, address, abi,farm,farmABI }) => {
   const [isActive, setIsActive] = useState(false);
@@ -69,11 +67,10 @@ const Farm = ({ pair, apy, daily, network, img1, img2, address, abi,farm,farmABI
     setTvl(res)
   }
 
-  const getBusdPrice = async()=>{
-    let res = await axios.get('https://api.binance.com/api/v3/ticker/price?symbol=BUSDUSDT')
-    let price = res.data['price']
+  const handleBusdPrice = useCallback(async()=>{
+    let price = await getBusdPrice()
     setPrice(price)
-  }
+  },[])
 
   const handleHarvested = async(farm,farmABI)=>{
     let res = await harvestAmt(provider,farm,farmABI,account)
@@ -89,8 +86,8 @@ const Farm = ({ pair, apy, daily, network, img1, img2, address, abi,farm,farmABI
   })
   
   useEffect(()=>{
-    getBusdPrice()
-  },[price])
+    handleBusdPrice()
+  },[handleBusdPrice])
 
   return (
     <>

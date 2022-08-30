@@ -5,9 +5,7 @@ export const data = [
     {
         token:"Recurring Pool A",
         apr:"36.00%",
-        daily:"0.416",
         tvl:"-",
-        network:"linkdao.network",
         img:LKD,
         pool:LkdPool24,
         poolAbi:LkdPool24ABI,
@@ -17,9 +15,7 @@ export const data = [
     {
         token:"Recurring Pool B",
         apr:"24.00%",
-        daily:"0.416",
         tvl:"-",
-        network:"linkdao.network",
         img:LKD,
         pool:LkdPool18,
         poolAbi:LkdPool18ABI,

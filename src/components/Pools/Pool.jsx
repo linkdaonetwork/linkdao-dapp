@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext,useCallback } from "react";
 import "./Pool.css";
 import { AiFillCaretDown, AiFillCaretUp } from "react-icons/ai";
 import { FiExternalLink } from "react-icons/fi";
@@ -9,9 +9,9 @@ import { ConnectContext } from "../../context/ConnectContext";
 import { LkdToken as address } from "../../address";
 import { LkdTokenABI as abi } from "../../abi";
 import { useEffect } from "react";
-import axios from "axios";
+import { getPrice } from "../../utils";
 
-const Pool = ({ token, apr,network, img, pool, poolABI, contract, month }) => {
+const Pool = ({ token, apr, img, pool, poolABI, contract, month }) => {
   const [isActive, setIsActive] = useState(false);
   const [status, setStatus] = useState(false)
   const [account] = useContext(NetworkContext)
@@ -73,10 +73,10 @@ const Pool = ({ token, apr,network, img, pool, poolABI, contract, month }) => {
     setProfit(res)
   }
   
-  const handlePrice= async(account)=>{
-    const response = await axios.get('https://liquidity-pool.herokuapp.com/api/tokenPrice')
-    setPrice(response.data.data)
-  }
+  const handlePrice= useCallback(async()=>{
+    let pr = await getPrice()
+    setPrice(pr)
+  },[])
 
   useEffect(() => {
     handleCheckApprove(address, abi)
@@ -89,7 +89,7 @@ const Pool = ({ token, apr,network, img, pool, poolABI, contract, month }) => {
 
   useEffect(()=>{
     handlePrice()
-  },[price])
+  },[handlePrice])
 
   return (
     <div>

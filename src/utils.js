@@ -1,3 +1,5 @@
+import axios from "axios";
+
 export const truncateAddress = (address) => {
   if (!address) return "No Account";
   const match = address.match(
@@ -11,3 +13,14 @@ export const toHex = (num) => {
   const val = Number(num);
   return "0x" + val.toString(16);
 };
+
+export const getPrice =async()=>{ //get lkd price
+  const response = await axios.get('https://liquidity-pool.herokuapp.com/api/tokenPrice')
+  return response.data.data
+}
+
+export const getBusdPrice = async()=>{
+  let res = await axios.get('https://api.binance.com/api/v3/ticker/price?symbol=BUSDUSDT')
+  let price = res.data['price']
+  return price
+}
