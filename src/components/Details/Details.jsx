@@ -145,7 +145,7 @@ const Details = () => {
             <div className="back">
               <div className="back-container">
                 <Link
-                  to="/"
+                  to="/Launchpad"
                   style={{ textDecoration: "none", color: "#9999b3" }}
                 >
                   <span>&#32;&#60;&#32;Back</span>
@@ -272,8 +272,7 @@ from various liquidity pools (LPs),‌ ‌automated market making (AMM) projects
                     <br />
                     <span className="text_white">DEX Listing:</span> Pancakeswap
                     <br />
-                    <span className="text_white">CEX Listing:</span> BitMart,
-                    BKEX, LBANK, gate.io, MEXC Global
+                    <span className="text_white">CEX Listing:</span> BitMart, LBANK
                     <br />
                     <br />
                   </div>
@@ -363,7 +362,8 @@ from various liquidity pools (LPs),‌ ‌automated market making (AMM) projects
                         </div>
                         {/* <div className="claim_box"> */}
                         {/* <div className="approve" onClick={handleDeposit}> */}
-                        <div className="approve" onClick={()=>claimALL(provider)}>
+                        {/* <div className="approve" onClick={()=>claimALL(provider)}> */}
+                        <div className="approve" style={{background:"rgb(122, 119, 110)"}}>
                           Claim
                         {/* </div> */}
                           {/* <div className="claim" onClick={handleInitialClaim}>

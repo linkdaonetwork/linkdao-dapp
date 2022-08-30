@@ -18,22 +18,10 @@ export const data = [
         farmABI:""
     },
      {
-        pair:"LKD-BNB LP",
-        apy:"143.25%",
-        daily:"0.2438%",
-        network:"PancakeSwap",
-        img1:LKD,
-        img2:BNB,
-        address:"",
-        abi:"",
-        farm:"",
-        farmABI:""
-    },
-     {
         pair:"LKD-USDT LP",
         apy:"124.91%",
         daily:"0.223%",
-        network:"BabySwap",
+        network:"PancakeSwap",
         img1:LKD,
         img2:USDT,
         address:bakerLp,

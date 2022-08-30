@@ -53,7 +53,7 @@ const Launchpad = () => {
   // let contract = new ethers.contract(address,seedABI,provider)
   let innerWidth = (100).toString()
   let innerWidth2 = ((privateDeposit / 100000) * 100).toString()
-  let innerWidth3 = ((publicDeposit / 500000) * 100).toString()
+  let innerWidth3 = ((500000/ 500000) * 100).toString()
   let date = new Date(1653919200000) // live date
   return (
     <>
@@ -368,7 +368,7 @@ const Launchpad = () => {
                         <div className="amount-title">Progress</div>
                         <div className="amount-value">
                           <div className="progress-desc">
-                            <span> {publicDeposit} BUSD</span>
+                            <span> 500000 BUSD</span>
                             <span> 500,000 BUSD</span>
                           </div>
                           <div className="progress-plan progress-status2">

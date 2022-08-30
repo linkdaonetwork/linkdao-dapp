@@ -20,12 +20,12 @@ const App = () => {
         <ConnectProvider>
           <Navbar />
           <Routes>
-            <Route path="/" element={<Launchpad />} />
+            <Route path="/Launchpad" element={<Launchpad />} />
             <Route path="/details" element={<Details />} />
             <Route path="/Private" element={<Private />} />
             <Route path="/Public" element={<Public />} />
             <Route path="/Airdrop" element={<Airdrop />} />
-            <Route path="/Farms" element={<Farms />} />
+            <Route path="/" element={<Farms />} />
             <Route path="/Pools" element={<Pools />} />
           </Routes>
           <Footer />

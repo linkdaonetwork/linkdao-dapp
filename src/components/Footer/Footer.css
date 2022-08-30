@@ -1,10 +1,11 @@
 .el-footer {
+    margin-top: 22rem;
     height: auto;
     overflow: auto;
     border-top: 1px solid rgb(58, 72, 97);
 }
 .footer {
-    background-color: #09162B;
+    background-color: #1d1d1d;
     padding: 56px 0 0;
 }
 .footer-container {
@@ -129,7 +130,7 @@
     align-items: center;
     justify-content: space-between;
     height: 49px;
-    background-color: #09162e;
+    background-color: #131313;
     width: 100%;
     font-size: 14px;
     font-weight: 400;
@@ -232,7 +233,7 @@
         display: block;
         text-align: center;
         font-size: 0.7rem;
-        background-color: #09162e;
+        background-color: #131313;
     border-top: 1px solid rgb(58, 72, 97);
     }
     .contact-us img {
@@ -248,7 +249,7 @@
         display: block;
         text-align: center;
         font-size: 0.7rem;
-        background-color: #09162e;
+        background-color: #131313;
     border-top: 1px solid rgb(58, 72, 97);
     }
     .footer .downDiv>div:first-child {

@@ -8,7 +8,7 @@
     padding: 80px 0 0;
     position: relative;
     min-height: calc(100vh - 255px);
-    background-color: #09162B;
+    background-color: #131313;
 
 }
 
@@ -58,7 +58,7 @@
     border-radius: 23px;
     padding: 40px 48px;
     box-sizing: border-box;
-    background-color: #09162E;
+    background-color: #1d1d1d;
     /* box-shadow: 0 10px 36px 0 #18142b; */
     border: 0.5px solid rgb(128,128,128,0.2);
 }
@@ -80,7 +80,7 @@
     height: 50%;
     /* border-radius: 50%; */
     margin-right: 17px;
-    background-color: #09162E;
+    background-color: #1d1d1d;
 }
 
 .ido-name {
@@ -172,7 +172,7 @@
     display: flex;
     flex-direction: column;
     border-radius: 23px;
-    background-color: #09162E;
+    background-color: #1d1d1d;
     /* box-shadow: 0 10px 36px 0 #18142b; */
     box-sizing: border-box;
     border: 0.5px solid rgb(128,128,128,0.2);
@@ -547,10 +547,10 @@
 
 
 
-.moving_image {
+/* .moving_image {
     
 }
-
+ */
 
 @keyframes mymove {
     0%, 100% {

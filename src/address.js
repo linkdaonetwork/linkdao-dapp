@@ -7,3 +7,6 @@ export const publicAddress = "0xd0fBDbB74D59C79a6d8E8352473d3829D97Dd4BA" //link
 export const privateVesting = "0x43148a8B840d4953c1a939B677A9AeF1f8079B07" //linkdao vesitng private mainnet
 export const bakerLp = "0x523e4C1F41dFa88e2a5D6761D022F4C6D4CeAe9d" //linkdao lkd-usdt farm mainnet
 export const bakerFarm = "0x5a1d70fbCa8d5B31A03183D8732c7Ab6150D82DF" //linkdao farm mainnet
+export const LkdPool24 = "0x68b7ee70ab8c692605f0f2345008398c0ec1a20b" //Linkdao pool mainnet
+export const LkdPool18 = "0xd4769eb0cca4d29af46361052b55767e016df956" //Linkdao pool mainnet
+export const LkdToken = "0xaF027427DC6d31A3e7e162A710a5Fe27e63E275F" //linkdao token mainnet
