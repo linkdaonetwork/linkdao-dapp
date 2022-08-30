@@ -5,15 +5,18 @@ import { data } from "../../data/pools";
 const Pools = () => {
   return (
     <>
-      {data.map(({ token, apy, daily, tvl, network, img }) => {
+      {data.map(({ token, apr, daily, tvl, network, img,pool,poolAbi,contract,month }) => {
         return (
           <Pool
             token={token}
-            apy={apy}
-            daily={daily}
+            apr={apr}
             tvl={tvl}
             network={network}
             img={img}
+            pool={pool}
+            poolABI={poolAbi}
+            contract={contract}
+            month={month}
           />
         );
       })}

@@ -384,8 +384,9 @@
     padding: 10px 16px;
 }
 
-
-
+.ct1-input > p{
+    cursor: pointer;
+}
 
 
 @media (max-width: 1140px) {
@@ -548,9 +549,9 @@
 
 
 
-.moving_image {
+/* .moving_image {
     
-}
+} */
 
 
 @keyframes mymove {

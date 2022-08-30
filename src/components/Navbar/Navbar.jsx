@@ -130,7 +130,7 @@ const Navbar = () => {
           </Link>
           <div className="nav">
             <div className="n-item n-margin">
-              <Link to="/Farms" className="nav-link" onClick={closeMenu}>
+              <Link to="/" className="nav-link" onClick={closeMenu}>
                 Farms
               </Link>
             </div>
@@ -140,7 +140,7 @@ const Navbar = () => {
               </Link>
             </div>
             <div className="n-item n-margin">
-              <Link to="/" className="nav-link" onClick={closeMenu}>
+              <Link to="/Launchpad" className="nav-link" onClick={closeMenu}>
                 Launchpad
               </Link>
             </div>
@@ -168,13 +168,7 @@ const Navbar = () => {
               <img src={Dots} alt="Nav" onClick={flipNav} />
             </button>
             {modalMobile?<ul id="nav-list" className="nav-list">
-              <Link to="/" className="nav-link" onClick={flipNav}>
-              <li className="n-item select-tab" >
-                Launchpad
-              <i className="iconfont icon-icons-launchpad"></i>
-              </li>
-              </Link>
-                <Link to="/Farms" className="nav-link" onClick={flipNav}>
+                <Link to="/" className="nav-link" onClick={flipNav}>
               <li className="n-item" >
                 Farms
               </li>
@@ -185,10 +179,10 @@ const Navbar = () => {
                 Pool
               </li>
                </Link>
-              
-               <Link to="/Airdrop" className="nav-link" onClick={flipNav}>
-              <li className="n-item" >
-                Airdrop
+              <Link to="/Launchpad" className="nav-link" onClick={flipNav}>
+              <li className="n-item select-tab" >
+                Launchpad
+              <i className="iconfont icon-icons-launchpad"></i>
               </li>
               </Link>
             </ul>:null}

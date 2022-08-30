@@ -25,7 +25,7 @@
 
 .tabs {
   height: 52px;
-  background: #03111c;
+  background: #1d1d1d;
   border-radius: 10px;
   display: flex;
   justify-content: space-between;
@@ -47,10 +47,10 @@
 }
 
 .is-active {
-  background-color: #09162e;
+  background-color: rgba(128,128,128,0.3);
   border-radius: 10px;
   color: #fff;
-  box-shadow: 0 3px 3px 0 #03111c;
+  box-shadow: 0 3px 3px 0 transparent;
   text-shadow: 0 1px 1px #23233b;
 }
 
@@ -230,7 +230,7 @@
 .perch-center {
   width: 7px;
   height: 7px;
-  background-color: #2669f5;
+  background-color: #00e2c8;
   border-radius: 50%;
 }
 
@@ -266,7 +266,7 @@
 
 .el-progress-bar__outer {
   height: 12px;
-  background-color: #33334b;
+  background-color: #00e2c818;
   border-radius: 5px;
   overflow: hidden;
   position: relative;
@@ -275,7 +275,7 @@
 
 .el-progress-bar__inner {
   width: 100%;
-  background-color: #1989e4;
+  background-color: #00e2c8;
   height: 10px;
   border-radius: 5px;
 }

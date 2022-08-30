@@ -7,6 +7,7 @@ const Farms = () => {
     <>
       {data.map(({ pair, apy, daily, network, img1, img2,address,abi,farm,farmABI },index) => {
         return (
+        //  <div style={{paddingBottom:'25px'}}> 
           <Farm
             key={index}
             pair={pair}
@@ -20,6 +21,7 @@ const Farms = () => {
             farm={farm}
             farmABI={farmABI}
           />
+          // </div>
         );
       })}
     </>

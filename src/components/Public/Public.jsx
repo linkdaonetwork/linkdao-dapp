@@ -114,7 +114,8 @@ const Public = () => {
     handleAmount()
   });
   
-  let innerWidth = ((deposit/500000) *100).toString()
+  let innerWidth = ((500000/500000) *100).toString()
+  console.log(innerWidth)
   let date = new Date(1653919200000) // live date
   return (
     <>
@@ -124,7 +125,7 @@ const Public = () => {
             <div className="back">
               <div className="back-container">
                 <Link
-                  to="/"
+                  to="/Launchpad"
                   style={{ textDecoration: "none", color: "#9999b3" }}
                 >
                   <span>&#32;&#60;&#32;Back</span>
@@ -251,8 +252,7 @@ from various liquidity pools (LPs),‌ ‌automated market making (AMM) projects
                     <br />
                     <span className="text_white">DEX Listing:</span> Pancakeswap
                     <br />
-                    <span className="text_white">CEX Listing:</span> BitMart,
-                    BKEX, LBANK, gate.io, MEXC Global
+                    <span className="text_white">CEX Listing:</span> BitMart, LBANK
                     <br />
                     <br />
                   </div>
@@ -294,7 +294,7 @@ from various liquidity pools (LPs),‌ ‌automated market making (AMM) projects
                         <div className="amount-title" style={{marginTop: '25px'}}>Progress</div>
                       <div className="amount-value">
                         <div className="progress-desc">
-                          <span> {deposit} BUSD</span>
+                          <span> 500000 BUSD</span>
                           <span> 500,000 BUSD</span>
                         </div>
                         <div className="progress-plan progress-status2">
