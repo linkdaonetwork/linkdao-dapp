@@ -130,6 +130,11 @@ const Navbar = () => {
           </Link>
           <div className="nav">
             <div className="n-item n-margin">
+              <Link to="/Dashboard" className="nav-link" onClick={closeMenu}>
+                Dashboard
+              </Link>
+            </div>
+            <div className="n-item n-margin">
               <Link to="/" className="nav-link" onClick={closeMenu}>
                 Farms
               </Link>
