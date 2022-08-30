@@ -9,6 +9,7 @@ import Navbar from "./components/Navbar/Navbar";
 import Airdrop from "./components/Airdrop/Airdrop";
 import Farms from "./components/Farms/Farms";
 import Pools from "./components/Pools/Pools";
+import Dashboard from "./components/Dashboard/Dashboard";
 import { NetworkProvider } from "./context/NetworkContext";
 import { ConnectProvider } from "./context/ConnectContext";
 import Public from "./components/Public/Public";
@@ -27,6 +28,7 @@ const App = () => {
             <Route path="/Airdrop" element={<Airdrop />} />
             <Route path="/" element={<Farms />} />
             <Route path="/Pools" element={<Pools />} />
+            <Route path="/Dashboard" element={<Dashboard />} />
           </Routes>
           <Footer />
         </ConnectProvider>

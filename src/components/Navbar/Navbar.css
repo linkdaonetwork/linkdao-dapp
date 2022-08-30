@@ -214,5 +214,8 @@
 .nav-link:active {
 color: #fff;
 }
+.nav-link::selection{
+color: #fff;
+}
 
 
