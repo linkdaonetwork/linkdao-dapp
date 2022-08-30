@@ -26,9 +26,9 @@ const App = () => {
             <Route path="/Private" element={<Private />} />
             <Route path="/Public" element={<Public />} />
             <Route path="/Airdrop" element={<Airdrop />} />
-            <Route path="/" element={<Farms />} />
+            <Route path="/Farms" element={<Farms />} />
             <Route path="/Pools" element={<Pools />} />
-            <Route path="/Dashboard" element={<Dashboard />} />
+            <Route path="/" element={<Dashboard />} />
           </Routes>
           <Footer />
         </ConnectProvider>
