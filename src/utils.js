@@ -19,7 +19,7 @@ export const getPrice =async()=>{ //get lkd price
   return response.data.data
 }
 
-export const getBusdPrice = async()=>{
+export const getBusdPrice = async()=>{ //get busd price
   let res = await axios.get('https://api.binance.com/api/v3/ticker/price?symbol=BUSDUSDT')
   let price = res.data['price']
   return price
