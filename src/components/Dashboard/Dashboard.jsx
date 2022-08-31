@@ -62,7 +62,7 @@ const Dashboard = () => {
                 </div>
 
                 <div className="fssd02">
-                    <div className='fssd03'>$ {(320000 * price).toFixed(3)}</div>
+                    <div className='fssd03'>$ {(supply * price).toFixed(3)}</div>
                     <div className='fssd04'>LKD Market Cap</div>
                 </div>
 
