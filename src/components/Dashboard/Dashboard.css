@@ -9,21 +9,33 @@
     display: flex;
     flex-direction: column;
     background-color: #1d1d1d;
-    border-radius: 23px;
+    border-radius: 14px;
     padding: 2vw;
     /* flex-basis: 28%; */
-    margin: 2% auto;
-    width: calc(15rem + 15vw);
+    margin: 2% auto 4%;
+    width: 28%;
+    border: 1px solid rgb(128,128,128,0.2);
 }
 
 .fssd03{
     color: #00e2c8;
     font-size: 25px;
-    font-size: calc(1.5rem + 1.5vw);
+    font-size: calc(calc(1rem + 1vw));
 }
 
 .fssd04{
     color: #999999;
     margin-top: 10px;
     font-size: calc(0.8rem + 0.8vw);
+}
+
+@media (max-width: 1000px) {
+    .fssd02{
+        padding: 4vw;
+    margin: 5% auto;
+    width: 85%
+    }
+    .fssd01{
+        flex-direction: column;
+    }
 }

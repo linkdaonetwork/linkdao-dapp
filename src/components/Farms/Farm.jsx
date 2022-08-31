@@ -211,7 +211,7 @@ const Farm = ({ pair, apy, daily, network, img1, img2, address, abi,farm,farmABI
                   <div className="accordion-content">
                     <div className="borderfarm"></div>
                     <div className="main001">
-                      <div className="jss205" style={{height:'16rem'}}>
+                      <div className="jss205">
                         <div className="ct1-inputfarm">
                           <input type="text" placeholder="0.0" value={deposit} onChange={(e)=>setDeposit(e.target.value)} />
                           {/* <span className="ct1-max"> MAX</span> */}

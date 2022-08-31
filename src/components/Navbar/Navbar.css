@@ -122,11 +122,14 @@
 .nav-list {
     background-color: #1d1d1d;
     border-radius: 1.14rem;
-    padding: 5px 25px;
+    padding: 5px 28px;
     position: absolute;
-    right: 18px;
+    right: 5px;
     top: 81px;
     z-index: 9999;
+    width: 57%;
+    height: 87%;
+    border: 1px solid rgb(128,128,128,0.2);
 }
 
 

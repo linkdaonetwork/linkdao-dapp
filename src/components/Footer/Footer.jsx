@@ -3,12 +3,15 @@ import { FaMediumM , FaTelegramPlane } from 'react-icons/fa';
 import { FiTwitter , FiGithub } from 'react-icons/fi';
 import { SiGitbook } from "react-icons/si";
 // import { SiDiscord } from 'react-icons/si';
-import Logo from '../../images/logo.svg';
+import Coin from '../../images/coin.svg';
 import github from '../../images/github.png'
 import medium from '../../images/medium.png'
 import twitter from '../../images/twitter.png'
+import MetaMask from '../../images/MetaMask.png'
 import telegram from '../../images/telegram.png'
 import docs from '../../images/docs.png'
+// import Pancake from '../../images/pancake.svg'
+import Blocksafu from '../../images/BlockSafu.png'
 
 import './Footer.css';
 
@@ -18,14 +21,20 @@ const Footer = () => {
         <div className="footer">
             <div className="footer-container">
                 <div className='footerDiv'>
-                    <p className="title1"> Help <span></span> </p>
-                    <ul>
-                        <li style={{display: 'none'}}> FAQ </li>
-                        <li> <a href="https://linkdao-network.gitbook.io/linkdao/guide/how-to-participate" target="_blank" className="href">How to participate</a> </li>
-                    </ul>
-                    
+                    {/* <p className="title1"> Help <span></span> </p> */}
+                   <div className="fssf01"> 
+                        <div className='fssf02'>
+                            <img src={Coin} alt="" className="fssf03" />
+                            <div className='fssf13'>
+                                <p className="fssf04">LKD</p>
+                                <p className="fssf05">$ 0.74162</p>
+                            </div>
+                        </div>
+                        <button href="" className="fssf06 fssf07"><img src={MetaMask} alt="" className="metaimg" />Add To Metamask</button>
+                        <div className="fssf09"><button href="https://pancakeswap.finance/swap?inputCurrency=0xaf027427dc6d31a3e7e162a710a5fe27e63e275f" className="fssf10">Buy LKD</button></div>                    
+                    </div>
                 </div>
-                <div className='footerDiv'>
+                <div className='footerDiv fssf12'>
                     <p className="title2"> Social <span></span></p>
                     <div className="community pc-community">
                         <div className="community-line">
@@ -35,12 +44,7 @@ const Footer = () => {
                             </div>
                             <div className="community-item drop_down_btn">
                             <a href="https://t.me/linkdao_network" className="href" target="_blank"><FaTelegramPlane/>
-                                <span> Telegram </span></a>
-                                {/* <ul class="telegram-list">
-                                <li className="blank"><a href="https://t.me/EraxOfficialChannel" target="_blank">Telegram (announcement)</a></li>
-                                <li className=""><a href="https://t.me/EraxNFT" target="_blank">Telegram (Chat)</a></li>
-                                </ul> */}
-                               
+                                <span> Telegram </span></a> 
                             </div>
                             
                         </div>
@@ -93,11 +97,15 @@ const Footer = () => {
                 <div className="footerDiv contact-us">
                             <img src="https://linkdao.network/img/LinkdaoNameLogo.svg" alt="" />
                             <div className="contact"> Contact us: <a href="mailto:contact@linkdao.network" className="href">contact@linkdao.network</a></div>
-                        
+                           
 
                     </div>
                 
-                
+                    
+            </div>
+
+            <div className='fssf11'>
+            <a href="https://blocksafu.com/detailindex/31" className="href"><img src={Blocksafu} alt="" className="fssf08" /></a>
             </div>
             <div className="downDiv">
                 <div>
