@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useState,useCallback,useEffect} from 'react';
 import { FaMediumM , FaTelegramPlane } from 'react-icons/fa';
 import { FiTwitter , FiGithub } from 'react-icons/fi';
 import { SiGitbook } from "react-icons/si";
@@ -11,11 +11,20 @@ import MetaMask from '../../images/MetaMask.png'
 import telegram from '../../images/telegram.png'
 import docs from '../../images/docs.png'
 // import Pancake from '../../images/pancake.svg'
+import { addTokenFunction, getPrice } from '../../utils';
 import Blocksafu from '../../images/BlockSafu.png'
 
 import './Footer.css';
 
 const Footer = () => {
+    const [price,setPrice] = useState(0)
+    const handlePrice= useCallback(async()=>{
+        let pr = await getPrice()
+        setPrice(pr)
+      },[])
+      useEffect(()=>{
+        handlePrice()
+      },[handlePrice])
   return (
     <div className="el-footer">
         <div className="footer">
@@ -27,10 +36,10 @@ const Footer = () => {
                             <img src={Coin} alt="" className="fssf03" />
                             <div className='fssf13'>
                                 <p className="fssf04">LKD</p>
-                                <p className="fssf05">$ 0.74162</p>
+                                <p className="fssf05">$ {price}</p>
                             </div>
                         </div>
-                        <button href="" className="fssf06 fssf07"><img src={MetaMask} alt="" className="metaimg" />Add To Metamask</button>
+                        <button onClick={()=>addTokenFunction()} className="fssf06 fssf07" style={{cursor:'pointer'}}><img src={MetaMask} alt="" className="metaimg" />Add To Metamask</button>
                         <div className="fssf09"><button href="https://pancakeswap.finance/swap?inputCurrency=0xaf027427dc6d31a3e7e162a710a5fe27e63e275f" className="fssf10">Buy LKD</button></div>                    
                     </div>
                 </div>
