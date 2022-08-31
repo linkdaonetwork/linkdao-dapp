@@ -474,6 +474,10 @@ a{
     margin-bottom: 17px;
 }
 
+.fssf14{
+    text-align: right;
+}
+
 
 @media (max-width: 1000px) {
     .fssf01{
@@ -490,5 +494,8 @@ a{
     }
     .fssf11{
         justify-content: center;
+    }
+    .fssf14{
+        text-align: center;
     }
 }

@@ -39,26 +39,26 @@ const Footer = () => {
                     <div className="community pc-community">
                         <div className="community-line">
                             <div className="community-item">
-                            <a href="https://twitter.com/LinkdaoN" className="href" target="_blank"><FiTwitter/>
+                            <a href="https://twitter.com/LinkdaoN" className="href" rel="noreferrer" target="_blank"><FiTwitter/>
                                 <span> Twitter </span></a>
                             </div>
                             <div className="community-item drop_down_btn">
-                            <a href="https://t.me/linkdao_network" className="href" target="_blank"><FaTelegramPlane/>
+                            <a href="https://t.me/linkdao_network" className="href" rel="noreferrer" target="_blank"><FaTelegramPlane/>
                                 <span> Telegram </span></a> 
                             </div>
                             
                         </div>
                         <div className="community-line">
                             <div className="community-item">
-                            <a href="https://medium.com/@linkdaonetwork" className="href" target="_blank"><FaMediumM/>
+                            <a href="https://medium.com/@linkdaonetwork" className="href" rel="noreferrer" target="_blank"><FaMediumM/>
                                 <span> Medium </span></a>
                             </div>
                             <div className="community-item">
-                            <a href="https://linkdao-network.gitbook.io/linkdao/" className="href" target="_blank"><SiGitbook/>
+                            <a href="https://linkdao-network.gitbook.io/linkdao/" className="href" rel="noreferrer" target="_blank"><SiGitbook/>
                                 <span> Docs </span></a>
                             </div>
                             <div className="community-item">
-                            <a href="https://github.com/linkdaonetwork" className="href" target="_blank"><FiGithub/>
+                            <a href="https://github.com/linkdaonetwork" className="href" rel="noreferrer" target="_blank"><FiGithub/>
                                 <span> Github </span></a>
                             </div>
                             
@@ -70,23 +70,23 @@ const Footer = () => {
                     <div className="community h5-community">
                         
                             <div className="community-item">
-                                <a href="https://twitter.com/LinkdaoN" className="href" target="_blank"><img src={twitter} alt="" className="src" /></a>
+                                <a href="https://twitter.com/LinkdaoN" className="href" rel="noreferrer" target="_blank"><img src={twitter} alt="" className="src" /></a>
                                 
                             </div>
                             <div className="community-item">
-                            <a href="https://t.me/linkdao_network" className="href" target="_blank"><img src={telegram} alt="" className="src" /></a>
+                            <a href="https://t.me/linkdao_network" className="href" rel="noreferrer" target="_blank"><img src={telegram} alt="" className="src" /></a>
                                 
                             </div>
                             <div className="community-item">
-                            <a href="https://medium.com/@linkdaonetwork" className="href" target="_blank"><img src={medium} alt="" className="src" /></a>
+                            <a href="https://medium.com/@linkdaonetwork" className="href" rel="noreferrer" target="_blank"><img src={medium} alt="" className="src" /></a>
                                
                             </div>
                             <div className="community-item">
-                            <a href="https://linkdao-network.gitbook.io/linkdao/" className="href" target="_blank"><img src={docs} alt="" className="src" /></a>
+                            <a href="https://linkdao-network.gitbook.io/linkdao/" className="href" rel="noreferrer" target="_blank"><img src={docs} alt="" className="src" /></a>
                                 
                             </div>
                             <div className="community-item">
-                            <a href="https://github.com/linkdaonetwork" className="href" target="_blank"><img src={github} alt="" className="src" /></a>
+                            <a href="https://github.com/linkdaonetwork" className="href" rel="noreferrer" target="_blank"><img src={github} alt="" className="src" /></a>
                                
                             </div>
                     </div>
@@ -105,18 +105,19 @@ const Footer = () => {
             </div>
 
             <div className='fssf11'>
-            <a href="https://blocksafu.com/detailindex/31" className="href"><img src={Blocksafu} alt="" className="fssf08" /></a>
+                <div className='fssf14'>
+            <a href="https://blocksafu.com/detailindex/31" className="href" rel="noreferrer" target="_blank"><img src={Blocksafu} alt="" className="fssf08" /></a></div>
             </div>
             <div className="downDiv">
                 <div>
                     <span> Copyright @ 2022 . Linkdao Network All rights reserved</span>
                 </div>
-                <div>
+                {/* <div>
                     <span>
                         <a href="" className="link-class">Terms of Service </a>
                         <a href="" className="link-class"> Privacy Policy </a>
                     </span>
-                </div>
+                </div> */}
             </div>
         </div>
     </div>
