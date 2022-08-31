@@ -1,4 +1,5 @@
 import axios from "axios";
+import { ethers } from "ethers";
 
 export const truncateAddress = (address) => {
   if (!address) return "No Account";
@@ -23,4 +24,10 @@ export const getBusdPrice = async()=>{ //get busd price
   let res = await axios.get('https://api.binance.com/api/v3/ticker/price?symbol=BUSDUSDT')
   let price = res.data['price']
   return price
+}
+
+export const getCirculatingSupply=async()=>{
+  let res = await axios.get('https://liquidity-pool.herokuapp.com/api/circulatingSupply')
+  res =  res.data.data
+  return parseFloat(ethers.utils.formatUnits(res, 18)).toFixed(3)
 }
