@@ -36,7 +36,7 @@ const Footer = () => {
                             <img src={Coin} alt="" className="fssf03" />
                             <div className='fssf13'>
                                 <p className="fssf04">LKD</p>
-                                <p className="fssf05">$ {price}</p>
+                                <p className="fssf05">$ {parseFloat(price).toFixed(5)}</p>
                             </div>
                         </div>
                         <button onClick={()=>addTokenFunction()} className="fssf06 fssf07" style={{cursor:'pointer'}}><img src={MetaMask} alt="" className="metaimg" />Add To Metamask</button>
