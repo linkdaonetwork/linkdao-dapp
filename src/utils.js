@@ -1,7 +1,7 @@
 import axios from "axios";
 import { ethers } from "ethers";
 import { LkdToken } from "./address";
-import LKD from './images/LKD.svg'
+import LKD from './images/Linkdao Logo.png'
 
 const tokenAddress = LkdToken;
 const tokenSymbol = 'LKD';
@@ -62,4 +62,10 @@ export const getCirculatingSupply = async () => {
   let res = await axios.get('https://liquidity-pool.herokuapp.com/api/circulatingSupply')
   res = res.data.data
   return parseFloat(ethers.utils.formatUnits(res, 18)).toFixed(3)
+}
+
+export const getHoldings = async () => {
+  let res = await axios.get('https://liquidity-pool.herokuapp.com/api/holdersList')
+  res = res.data.data
+  return res
 }
