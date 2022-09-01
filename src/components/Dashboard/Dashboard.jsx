@@ -1,6 +1,6 @@
 import React, { useState, useCallback, useEffect, useContext } from 'react'
 import "./Dashboard.css"
-import { getCirculatingSupply, getPrice } from '../../utils'
+import { getCirculatingSupply, getHoldings, getPrice } from '../../utils'
 import { ConnectContext } from "../../context/ConnectContext";
 import { data } from '../../data/pools';
 import { totalStakedFunc } from '../../contracts/pools';
@@ -10,6 +10,7 @@ const Dashboard = () => {
     const [supply, setSupply] = useState(0)
     const [staked, setStaked] = useState(0)
     const [provider] = useContext(ConnectContext)
+    const [holders,setHolders] =useState(0)
 
     const handlePrice = useCallback(async () => {
         let pr = await getPrice()
@@ -36,11 +37,17 @@ const Dashboard = () => {
         })
     }, [provider])
 
+    const handleHolders = useCallback(async()=>{
+        let pr = await getHoldings()
+        setHolders(pr)
+    },[])
+
     useEffect(() => {
         handlePrice()
         handleTotalStaked()
         handleSupply()
-    }, [handlePrice, handleSupply, handleTotalStaked])
+        handleHolders()
+    }, [handlePrice, handleSupply, handleTotalStaked,handleHolders])
 
 
     return (
@@ -67,7 +74,7 @@ const Dashboard = () => {
                 </div>
 
                 <div className="fssd02">
-                    <div className='fssd03'>1000</div>
+                    <div className='fssd03'>{holders}</div>
                     <div className='fssd04'>LKD Holders</div>
                 </div>
 
