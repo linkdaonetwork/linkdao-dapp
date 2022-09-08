@@ -11,7 +11,7 @@ import { LkdTokenABI as abi } from "../../abi";
 import { useEffect } from "react";
 import { getPrice } from "../../utils";
 
-const Pool = ({ token, apr, img, pool, poolABI, contract, month }) => {
+const Pool = ({ token, apr, img, pool, poolABI, contract, month,limit,showAuditLog, depositOn }) => {
   const [isActive, setIsActive] = useState(false);
   const [status, setStatus] = useState(false)
   const [account] = useContext(NetworkContext)
@@ -188,11 +188,6 @@ const Pool = ({ token, apr, img, pool, poolABI, contract, month }) => {
                                </div>
                             </div>
                           </div>
-
-
-
-
-
                         </div>
                         <div className="ml">
                           {isActive ? <AiFillCaretUp /> : <AiFillCaretDown />}
@@ -209,10 +204,13 @@ const Pool = ({ token, apr, img, pool, poolABI, contract, month }) => {
                               </div>
                               {/* <ReactSlider/> */}
                               <div className="claim_box">
-                              {status 
-                          ? <><div className="pool_approve fmsize"  onClick={()=>handleDeposit(deposit)}>Deposit</div> <div className="pool_approve back_grey fmsize" style={{background:"rgb(122, 119, 110)"}}>Approve</div></>
-                          : <><div className="pool_approve back_grey fmsize" style={{background:"rgb(122, 119, 110)"}}>Deposit</div> <div className="pool_approve  fmsize" onClick={() => handleApprove(address, abi)}>Approve</div></>
-                          }
+                                {
+                                  depositOn?<>{status 
+                                    ? <><div className="pool_approve fmsize"  onClick={()=>handleDeposit(deposit)}>Deposit</div> <div className="pool_approve back_grey fmsize" style={{background:"rgb(122, 119, 110)"}}>Approve</div></>
+                                    : <><div className="pool_approve back_grey fmsize" style={{background:"rgb(122, 119, 110)"}}>Deposit</div> <div className="pool_approve  fmsize" onClick={() => handleApprove(address, abi)}>Approve</div></>
+                                    }</>:<><div className="pool_approve fmsize"  style={{background:"rgb(122, 119, 110)"}}>Deposit</div> <div className="pool_approve back_grey fmsize" style={{background:"rgb(122, 119, 110)"}}>Approve</div></>
+                                }
+                              
                               </div>
                               <p className="text_grey fsmall margin25 text_center">Min. deposit 1 LKD, Max. deposit 5000 LKD </p>
                               <p className="text_grey fsmall text_center">Deposit fee 0%</p>
@@ -239,11 +237,11 @@ const Pool = ({ token, apr, img, pool, poolABI, contract, month }) => {
                         <div className="jssp2052 margintop25">
                           <div className="ct1-inputpool width100pool">
 
-                            <p className="lkdpara"><span>Pool Limit</span> <span>100,000.00 LKD</span></p>
+                            <p className="lkdpara"><span>Pool Limit</span> <span>{limit}.00 LKD</span></p>
                             <p className="lkdpara"><span>LKD Staked</span> <span>{totalStaked} LKD</span></p>
                             <p><a className="text_grey" href="https://pancakeswap.finance/swap?inputCurrency=0xaf027427dc6d31a3e7e162a710a5fe27e63e275f">Buy token <FiExternalLink style={{color:"#00e2c8"}}/></a></p>
                             <p><a className="text_grey" href={contract}>View Contract <FiExternalLink style={{color:"#00e2c8"}}/></a></p>
-                            <p><a className="text_grey" href="https://github.com/blocksafu111/audit/blob/main/LinkDaoStaking-Audit-by-BlockSAFU.pdf">View Audit <FiExternalLink style={{color:"#00e2c8"}}/></a></p>
+                            {showAuditLog? <p><a className="text_grey" href="https://github.com/blocksafu111/audit/blob/main/LinkDaoStaking-Audit-by-BlockSAFU.pdf">View Audit <FiExternalLink style={{color:"#00e2c8"}}/></a></p>:null}
                           </div>
 
                         </div>
