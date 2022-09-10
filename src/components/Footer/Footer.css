@@ -2,7 +2,7 @@
     margin-top: 22rem;
     height: auto;
     overflow: auto;
-    border-top: 1px solid rgb(58, 72, 97);
+    border-top: 0.5px solid rgb(128,128,128,0.2);
 }
 .footer {
     background-color: #1d1d1d;
@@ -143,7 +143,7 @@
     text-shadow: 0 1px 1px #151624;
     padding: 0 75px 0 66px;
     box-sizing: border-box;
-    border-top: 1px solid rgb(58, 72, 97);
+    border-top: 0.5px solid rgb(128,128,128,0.2);
 
 }
 

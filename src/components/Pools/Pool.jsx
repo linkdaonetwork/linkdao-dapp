@@ -99,7 +99,7 @@ const Pool = ({ token, apr, img, pool, poolABI, contract, month,limit,showAuditL
           <div>
             <div className="pool-main margin25" style={{ minHeight: '0px' }}>
               <div className="aido">
-                <div style={{ marginBottom: "20px" }}>
+                <div>
                   <div className="accordion">
                     <div className="accordion-item">
                       <div

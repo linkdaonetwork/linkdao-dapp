@@ -22,7 +22,7 @@ margin: 0 25px;
 
 .accordion {
     /* max-width: 600px; */
-    margin: 2rem auto;
+    margin: auto;
     border: 0.5px solid rgb(128,128,128,0.2);
     border-radius: 23px;
     background-color: rgb(9,22,43,0.9);
@@ -353,3 +353,9 @@ margin: 0 25px;
 .fs1vw{
   font-size: 1vw;
 }}
+
+
+
+.farm-claim:hover{
+  opacity: 0.8;
+}
