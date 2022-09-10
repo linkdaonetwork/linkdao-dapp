@@ -12,9 +12,9 @@
     border-radius: 14px;
     padding: 2vw;
     /* flex-basis: 28%; */
-    margin: 2% auto 4%;
+    margin: 0 auto 4%;
     width: 28%;
-    border: 1px solid rgb(128,128,128,0.2);
+    border: 0.5px solid rgb(128,128,128,0.2);
 }
 
 .fssd03{
@@ -32,7 +32,7 @@
 @media (max-width: 1000px) {
     .fssd02{
         padding: 4vw;
-    margin: 5% auto;
+    margin: 2% auto;
     width: 85%
     }
     .fssd01{
