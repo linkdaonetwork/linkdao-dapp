@@ -356,3 +356,9 @@ margin: 0 25px;
 .fs1vw{
   font-size: 1vw;
 }}
+
+
+
+.farm-claim:hover{
+  opacity: 0.8;
+}
