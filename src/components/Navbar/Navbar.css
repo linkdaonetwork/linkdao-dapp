@@ -88,17 +88,10 @@
     justify-content: center;
 }
 
-<<<<<<< HEAD
-
-.connect_button:hover{
-    opacity: 0.8;
-}
-=======
 .connect_button:hover{
     opacity: 0.8;
 }
 
->>>>>>> 7ffdbc7cfa09697a78f964c0b5cea639e510cd92
 
 
 @media (max-width:1000px) {
