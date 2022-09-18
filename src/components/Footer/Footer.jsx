@@ -40,7 +40,7 @@ const Footer = () => {
                             </div>
                         </div>
                         <button onClick={()=>addTokenFunction()} className="fssf06 fssf07" style={{cursor:'pointer'}}><img src={MetaMask} alt="" className="metaimg" />Add To Metamask</button>
-                        <div className="fssf09"><a href="https://pancakeswap.finance/swap?inputCurrency=0xaf027427dc6d31a3e7e162a710a5fe27e63e275f" className="fssf10">Buy LKD</a></div>                    
+                        <div className="fssf09"><a href="https://pancakeswap.finance/swap?inputCurrency=0xaf027427dc6d31a3e7e162a710a5fe27e63e275f" target="_blank" className="fssf10">Buy LKD</a></div>                    
                     </div>
                 </div>
                 <div className='footerDiv fssf12'>

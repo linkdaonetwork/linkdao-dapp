@@ -11,7 +11,7 @@ import { approve,balance,checkApprove, getTvl } from "../../contracts/lps";
 import { depositAmount, depositedAmt, harvest, harvestAmt, withdraw } from "../../contracts/farms";
 import { getBusdPrice } from "../../utils";
 
-const Farm = ({ pair, apy, daily, network, img1, img2, address, abi,farm,farmABI }) => {
+const Farm = ({ pair, apy, daily, network, img1, img2, address, abi,farm,farmABI,token }) => {
   const [isActive, setIsActive] = useState(false);
   const [account] = useContext(NetworkContext)
   const [provider] = useContext(ConnectContext)
@@ -148,8 +148,8 @@ const Farm = ({ pair, apy, daily, network, img1, img2, address, abi,farm,farmABI
                       <div className="borderfarm marginh"></div>
                       <div className="subblockfarm">
                         <div className="divfarm">
-                          <div>{harvested} LKD</div>
-                          <div className="text_grey">LKD Reward</div>
+                          <div>{harvested} {token}</div>
+                          <div className="text_grey">{token}Reward</div>
                         </div>
                         <div className="divfarm">
                           {/* <div>{apy}</div> */}
@@ -181,8 +181,8 @@ const Farm = ({ pair, apy, daily, network, img1, img2, address, abi,farm,farmABI
                       </div>
                       <div className="jss214">
                         <div className="jss204">
-                          <div>{harvested} LKD</div>
-                          <div className="text_grey">LKD Reward</div>
+                          <div>{harvested} {token}</div>
+                          <div className="text_grey">{token}Reward</div>
                         </div>
                         <div className="jss204">
                           {/* <div>{apy}</div> */}
@@ -229,7 +229,7 @@ const Farm = ({ pair, apy, daily, network, img1, img2, address, abi,farm,farmABI
 
                       <div className="jss205 margintop25 flex16">
                         <div className="ct1-inputfarm">
-                        <p>LKD Earned</p>
+                        <p>Reward Earned</p>
                             <p style={{fontSize:'1.9rem'}}>{profit}</p>
                             <p style={{marginTop:"5px",fontSize:"smaller", color:"#9a9ab4"}}>${parseFloat(price*profit).toFixed(3)}</p>
                           {/* <span className="ct1-max"> MAX</span> */}
@@ -237,7 +237,7 @@ const Farm = ({ pair, apy, daily, network, img1, img2, address, abi,farm,farmABI
                         {/* <ReactSlider /> */}
                         
                         <div className="farm-claim width100" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }} onClick={()=>handleHarvest()}>Harvest</div>
-                        <p className="text_grey fsmall margin25 text_center">Withdraw LKD reward</p>
+                        <p className="text_grey fsmall margin25 text_center">Withdraw {token}reward</p>
                         <p className="text_grey fsmall text_center">Harvest fee 0%</p>
                         </div>
                         
@@ -250,7 +250,7 @@ const Farm = ({ pair, apy, daily, network, img1, img2, address, abi,farm,farmABI
                         {/* <ReactSlider /> */}
                         <div className="farm-claim width100" onClick={()=>handleWithdraw()}>Withdraw</div>
                          
-                        <p className="text_grey fsmall margin25 text_center">Withdraw LP tokens +  Pending LKD reward</p>
+                        <p className="text_grey fsmall margin25 text_center">Withdraw LP tokens +  Pending {token}reward</p>
                         
                         <p className="text_grey fsmall text_center">Withdraw fee 0%</p>
                         </div>
