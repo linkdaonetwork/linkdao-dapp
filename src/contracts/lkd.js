@@ -12,6 +12,6 @@ const contractLkd = async (provider) => {
 export const getAccountBalance = async (owner,provider) => {
     let cont = await contractLkd(provider);
     let balance = await cont.balanceOf(owner);
-    return parseInt(ethers.utils.formatUnits(balance, 18));
+    return parseFloat(ethers.utils.formatUnits(balance, 18));
   };
   
