@@ -8,7 +8,7 @@ const tokenSymbol = 'LKD';
 const tokenDecimals = 18;
 const tokenImage = LKD;
 
-const url  = "https://api.linkdao.network"
+const url  = "http://api.linkdao.network"
 
 export const addTokenFunction = async () => {
   try {
