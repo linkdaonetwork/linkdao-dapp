@@ -8,6 +8,8 @@ const tokenSymbol = 'LKD';
 const tokenDecimals = 18;
 const tokenImage = LKD;
 
+const url  = "https://api.linkdao.network"
+
 export const addTokenFunction = async () => {
   try {
     const wasAdded = await window.ethereum.request({
@@ -48,7 +50,7 @@ export const toHex = (num) => {
 };
 
 export const getPrice = async () => { //get lkd price
-  const response = await axios.get('https://liquidity-pool.herokuapp.com/api/tokenPrice')
+  const response = await axios.get(url+'/api/tokenPrice')
   return response.data.data
 }
 
@@ -59,13 +61,13 @@ export const getBusdPrice = async () => { //get busd price
 }
 
 export const getCirculatingSupply = async () => {
-  let res = await axios.get('https://liquidity-pool.herokuapp.com/api/circulatingSupply')
+  let res = await axios.get(url+'/api/circulatingSupply')
   res = res.data.data
   return parseFloat(ethers.utils.formatUnits(res, 18)).toFixed(3)
 }
 
 export const getHoldings = async () => {
-  let res = await axios.get('https://liquidity-pool.herokuapp.com/api/holdersList')
+  let res = await axios.get(url+'/api/holdersList')
   res = res.data.data
   return res
 }
