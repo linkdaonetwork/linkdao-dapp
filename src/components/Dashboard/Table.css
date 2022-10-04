@@ -1,9 +1,10 @@
-.css-11xur9t-MuiPaper-root-MuiTableContainer-root{
+.css-11xur9t-MuiPaper-root-MuiTableContainer-root, .css-13xy2my{
     background-color: transparent !important;
+    box-shadow: none !important;
     /* color: #fff; */
 }
 
-.css-15wwp11-MuiTableHead-root{
+.css-15wwp11-MuiTableHead-root, .css-1wbz3t9{
     background-color: #00e2c8;
     border-radius: 4px;
     /* color: #fff; */
@@ -14,14 +15,14 @@
 }
 
 
-.css-1ygcj2i-MuiTableCell-root, .css-1azl6jz-MuiTableCell-root{
+.css-1ygcj2i-MuiTableCell-root, .css-1azl6jz-MuiTableCell-root, .css-1bigob2{
     color: #fff !important;
     border-bottom: none !important;
     font-weight: 500 !important;
     font-family: 'Inter', sans-serif !important;
 }
 
-.css-1ex1afd-MuiTableCell-root, .css-177gid-MuiTableCell-root{
+.css-1ex1afd-MuiTableCell-root, .css-177gid-MuiTableCell-root, .css-q34dxg{
     color: #00e2c8 !important;
     font-family: 'Inter', sans-serif !important;
     border-bottom: none !important;
