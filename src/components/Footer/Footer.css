@@ -143,7 +143,7 @@
     text-shadow: 0 1px 1px #151624;
     padding: 0 75px 0 66px;
     box-sizing: border-box;
-    border-top: 0.5px solid rgb(128,128,128,0.2);
+    border-top: .5px solid hsla(0,0%,50%,.2);
 
 }
 
@@ -252,7 +252,7 @@
         text-align: center;
         font-size: 0.7rem;
         background-color: #131313;
-    border-top: 1px solid rgb(58, 72, 97);
+    border-top: .5px solid hsla(0,0%,50%,.2);
     }
     .contact-us img {
         -ms-flex-item-align: center!important;
@@ -268,7 +268,7 @@
         text-align: center;
         font-size: 0.7rem;
         background-color: #131313;
-    border-top: 1px solid rgb(58, 72, 97);
+    border-top: .5px solid hsla(0,0%,50%,.2);
     }
     .footer .downDiv>div:first-child {
         margin-bottom: 0.22rem;

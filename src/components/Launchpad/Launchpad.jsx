@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import Coin from "../../images/coin.svg";
+import Coin from "../../images/LKD.svg";
 import noItem from "../../images/no_item.png";
 import "./Launchpad.css";
 import { privateABI, seedABI, publicABI } from "../../abi";

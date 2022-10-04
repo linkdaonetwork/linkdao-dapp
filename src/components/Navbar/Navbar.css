@@ -104,6 +104,7 @@
     .header-left-logo{
         margin-top: 11px;
         width: 60px;
+        margin-left: -8px;
     }
     
 }
@@ -160,7 +161,7 @@
 
 
 .more-nav{
-    margin: 0;
+    margin: 0 0 0 10px;
     display: flex;
     justify-content: flex-end;
 }
@@ -172,7 +173,7 @@
 @media (max-width: 363px) {
 
     .more-nav{
-    margin: 0 10px 0 10px;
+    margin: 0 0 0 10px;
     display: flex;
     }
     .connect_button{
@@ -224,5 +225,10 @@ color: #fff !important;
 .nav-link::selection{
 color: #fff !important;
 }
+
+.nav-link:active{
+color: #fff;
+}
+
 
 

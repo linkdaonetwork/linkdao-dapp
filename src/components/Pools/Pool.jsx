@@ -10,6 +10,7 @@ import { LkdToken as address } from "../../address";
 import { LkdTokenABI as abi } from "../../abi";
 import { useEffect } from "react";
 import { getPrice } from "../../utils";
+import { getAccountBalance } from "../../contracts/lkd";
 
 const Pool = ({ token, apr, img, pool, poolABI, contract, month,limit,showAuditLog, depositOn }) => {
   const [isActive, setIsActive] = useState(false);
@@ -77,6 +78,11 @@ const Pool = ({ token, apr, img, pool, poolABI, contract, month,limit,showAuditL
     let pr = await getPrice()
     setPrice(pr)
   },[])
+
+  const handleAccountBalance = async()=>{
+    let sum = await getAccountBalance(account,provider)
+    setDeposit(sum)
+  }
 
   useEffect(() => {
     handleCheckApprove(address, abi)
@@ -201,6 +207,7 @@ const Pool = ({ token, apr, img, pool, poolABI, contract, month,limit,showAuditL
                               <div className="ct1-inputpool">
                                 <input type="text" placeholder="0.0" value={deposit} onChange={(e)=>setDeposit(e.target.value)} />
                                 {/* <span className="ct1-max"> MAX</span> */}
+                          <span className="ct1-max" onClick={handleAccountBalance}> MAX</span>
                               </div>
                               {/* <ReactSlider/> */}
                               <div className="claim_box">

@@ -174,11 +174,11 @@ margin: 0 25px;
   /* border: 0.5px solid rgb(128,128,128,0.2); */
   /* padding: 2px; */
     height: auto;
-    margin: auto;
+    margin: auto 1px;
     display: flex;
     align-items: center;
     line-height: 42px;
-    flex-basis: 11%;
+    flex-basis: 12%;
     justify-content: center;
 }
 
@@ -188,7 +188,7 @@ margin: 0 25px;
   padding: 2vw;
   height: auto;
   flex-basis: 28%;
-  margin: auto;
+  margin: auto 1px;
 }
 
 @media (max-width: 960px) {
@@ -245,6 +245,9 @@ margin: 0 25px;
     padding: 10px 16px;
 }
 
+.farm-claim:hover{
+  opacity: 0.8;
+}
 
 .jss214{
   display: flex;

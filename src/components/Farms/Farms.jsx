@@ -5,7 +5,7 @@ import { data } from "../../data/farms";
 const Farms = () => {
   return (
     <>
-      {data.map(({ pair, apy, daily, network, img1, img2,address,abi,farm,farmABI },index) => {
+      {data.map(({ pair, apy, daily, network, img1, img2,address,abi,farm,farmABI,token },index) => {
         return (
         //  <div style={{paddingBottom:'25px'}}> 
           <Farm
@@ -20,6 +20,7 @@ const Farms = () => {
             abi={abi}
             farm={farm}
             farmABI={farmABI}
+            token={token}
           />
           // </div>
         );
