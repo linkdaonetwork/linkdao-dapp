@@ -28,7 +28,7 @@ export default function BasicTable({ token, address, pool, poolABI,price }) {
         {token}
       </TableCell>
       <TableCell style={{ lineBreak: 'anywhere' }}>{address}</TableCell>
-      <TableCell className='_center'>{parseFloat(price*totalStaked).toFixed(3)}</TableCell>
+      <TableCell className='_center'>${parseFloat(price*totalStaked).toFixed(3)}</TableCell>
 
     </TableRow>
 
