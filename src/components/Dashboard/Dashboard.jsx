@@ -5,6 +5,14 @@ import { ConnectContext } from "../../context/ConnectContext";
 import { data } from "../../data/pools";
 import { totalStakedFunc } from "../../contracts/pools";
 import BasicTable from "./Table";
+import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+import TableCell from '@mui/material/TableCell';
+import TableContainer from '@mui/material/TableContainer';
+import TableHead from '@mui/material/TableHead';
+import TableRow from '@mui/material/TableRow';
+import Paper from '@mui/material/Paper';
+import "./Table.css"
 
 const Dashboard = () => {
   const [price, setPrice] = useState(0);
@@ -99,7 +107,23 @@ const Dashboard = () => {
         </div>
       </div>
       <div className="fssd05">
-        <BasicTable></BasicTable>
+        <TableContainer component={Paper}>
+          <Table sx={{ Width: '95%' }} aria-label="simple table">
+            <TableHead>
+              <TableRow>
+                <TableCell>Farms/Pools</TableCell>
+                <TableCell className='width640'>Address</TableCell>
+                <TableCell>TVL</TableCell>
+
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {data.map(({ token, address, pool, poolAbi}) => {
+                return <BasicTable token={token} address={address} pool={pool} poolABI={poolAbi} price={price} />
+              })}
+            </TableBody>
+          </Table>
+        </TableContainer>
       </div>
     </>
   );

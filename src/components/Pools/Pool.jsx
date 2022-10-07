@@ -99,9 +99,6 @@ const Pool = ({ token, apr, img, pool, poolABI, contract, month,limit,showAuditL
 
   return (
     <div>
-      {/* {data.map(({ token, apy, daily, price, network, img }) => {
-        return (
-          // Write html below */}
           <div>
             <div className="pool-main margin25" style={{ minHeight: '0px' }}>
               <div className="aido">
@@ -262,8 +259,6 @@ const Pool = ({ token, apr, img, pool, poolABI, contract, month,limit,showAuditL
           </div>
         </div>
       </div>
-      {/* );
-      })} */}
     </div>
   );
 };

@@ -13,7 +13,8 @@ export const data = [
         month:"24",
         limit:"100000",
         showAuditLog:true,
-        depositOn:true
+        depositOn:true,
+        address:"0x68B7Ee70Ab8c692605F0f2345008398c0Ec1A20B"
     },
     {
         token:"Recurring Pool B",
@@ -26,7 +27,8 @@ export const data = [
         month:"18",
         limit:"100000",
         showAuditLog:true,
-        depositOn:true
+        depositOn:true,
+        address:"0xd4769eb0cca4d29af46361052b55767e016df956"
     },
     {
         token:"Recurring Pool S24",
@@ -39,6 +41,7 @@ export const data = [
         month:"24",
         limit:"350000",
         showAuditLog:false,
-        depositOn:false
+        depositOn:false,
+        address:"0xed9a44c2a15cda8f71aabef6d11d10f377cb7200"
     }
 ]
