@@ -102,7 +102,7 @@ const Dashboard = () => {
         </div>
 
         <div className="fssd02">
-          <div className="fssd03">3</div>
+          <div className="fssd03">{data.length}</div>
           <div className="fssd04">Active Pool</div>
         </div>
       </div>
