@@ -213,14 +213,14 @@ const Farm = ({ pair, apy, daily, network, img1, img2, address, abi,farm,farmABI
                     <div className="main001">
                       <div className="jss205">
                         <div className="ct1-inputfarm">
-                          <input type="text" placeholder="0.0" value={deposit} onChange={(e)=>setDeposit(e.target.value)} />
+                          {/* <input type="text" placeholder="0.0" value={deposit} onChange={(e)=>setDeposit(e.target.value)} /> */}
                           {/* <span className="ct1-max"> MAX</span> */}
                         </div>
                         {/* <ReactSlider /> */}
                         <div className="claim_box">
                           {status 
-                          ? <><div className="farm-claim"  onClick={()=>handleDeposit(deposit)}>Deposit</div> <div className="farm-claim" style={{background:"rgb(122, 119, 110)"}}>Approve</div></>
-                          : <><div className="farm-claim" style={{background:"rgb(122, 119, 110)"}}>Deposit</div> <div className="farm-claim" onClick={() => handleApprove(address, abi)}>Approve</div></>
+                          ? <><div className="farm-claim"  onClick={()=>handleDeposit(deposit)}>Deposit All</div> <div className="farm-claim" style={{background:"rgb(122, 119, 110)"}}>Approve</div></>
+                          : <><div className="farm-claim" style={{background:"rgb(122, 119, 110)"}}>Deposit All</div> <div className="farm-claim" onClick={() => handleApprove(address, abi)}>Approve</div></>
                           }
                         </div>
                         <p className="text_grey fsmall margin25 text_center">Approve one time to enable deposit button.</p>
@@ -244,11 +244,11 @@ const Farm = ({ pair, apy, daily, network, img1, img2, address, abi,farm,farmABI
                         
                         <div className="jss205 margintop25 flex16">
                         <div className="ct1-inputfarm">
-                          <input type="text" placeholder="0.0" value={withdrawAmt} onChange={e=>setWithdrawAmt(e.target.value)} />
+                          {/* <input type="text" placeholder="0.0" value={withdrawAmt} onChange={e=>setWithdrawAmt(e.target.value)} /> */}
                           {/* <span className="ct1-max"> MAX</span> */}
                         </div>
                         {/* <ReactSlider /> */}
-                        <div className="farm-claim width100" onClick={()=>handleWithdraw()}>Withdraw</div>
+                        <div className="farm-claim width100" onClick={()=>handleWithdraw()}>Withdraw All</div>
                          
                         <p className="text_grey fsmall margin25 text_center">Withdraw LP tokens +  Pending {token}reward</p>
                         

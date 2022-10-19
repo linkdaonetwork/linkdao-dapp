@@ -173,28 +173,29 @@ const Navbar = () => {
               <img src={Dots} alt="Nav" onClick={flipNav} />
             </button>
             {modalMobile?<ul id="nav-list" className="nav-list">
-              <Link to="/" className="nav-link" onClick={flipNav}>
+               <Link to="/Pools" className="nav-link" onClick={flipNav}>
               <li className="n-item" >
-                Dashboard
+                Pool
               </li>
                </Link>
+
                 <Link to="/Farms" className="nav-link" onClick={flipNav}>
               <li className="n-item" >
                 Farms
               </li>
                 </Link>
               
-               <Link to="/Pools" className="nav-link" onClick={flipNav}>
-              <li className="n-item" >
-                Pool
-              </li>
-               </Link>
               <Link to="/Launchpad" className="nav-link" onClick={flipNav}>
               <li className="n-item select-tab" >
                 Launchpad
               <i className="iconfont icon-icons-launchpad"></i>
               </li>
               </Link>
+              <Link to="/" className="nav-link" onClick={flipNav}>
+              <li className="n-item" >
+                Dashboard
+              </li>
+               </Link>
             </ul>:null}
           </div>
         </div>
