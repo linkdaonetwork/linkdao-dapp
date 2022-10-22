@@ -8,7 +8,7 @@ const contractFarms = async (provider,farm, farmABI) => {
 
 export const depositAmount = async(provider,farm, farmABI,amount,toAddress) =>{
     let cont = await contractFarms(provider,farm,farmABI)
-    await cont.deposit(ethers.utils.parseEther(amount.toString()),toAddress.toString())
+    await cont.depositAll(ethers.utils.parseEther(amount.toString()),toAddress.toString())
 }
 
 export const harvest = async(provider,farm, farmABI,toAddress)=>{
@@ -18,7 +18,7 @@ export const harvest = async(provider,farm, farmABI,toAddress)=>{
 
 export const withdraw = async(provider,farm, farmABI,amount,toAddress)=>{
     let cont = await contractFarms(provider,farm,farmABI)
-    await cont.withdraw(ethers.utils.parseEther(amount.toString()),toAddress.toString())
+    await cont.withdrawAll(ethers.utils.parseEther(amount.toString()),toAddress.toString())
 }
 
 export const depositedAmt = async(provider,farm, farmABI,userAddress)=>{

@@ -6,8 +6,8 @@ import BNB from "../images/BNB.svg";
 import USDT from "../images/USDT.svg";
 import USDC from "../images/USDC.svg";
 import MATIC from "../images/MATIC.svg";
-import { bakerLp, bakerFarm } from "../address";
-import { bakerLpABI, bakerFarmABI } from "../abi";
+import { biswapLp,biswapFarm, } from "../address";
+import { biswapLpABI, biswapFarmABI } from "../abi";
 export const data = [
     {
         pair:"BTC-ETH LP",
@@ -16,10 +16,10 @@ export const data = [
         network:"PancakeSwap",
         img1:BTC,
         img2:ETH,
-        address:"",
-        abi:"",
-        farm:"",
-        farmABI:"",
+        address:biswapLp,
+        abi:biswapLpABI,
+        farm:biswapFarm,
+        farmABI:biswapFarmABI,
         token:""
     },
     {
@@ -109,10 +109,10 @@ export const data = [
         network:"PancakeSwap",
         img1:LKD,
         img2:USDT,
-        address:bakerLp,
-        abi:bakerLpABI,
-        farm:bakerFarm,
-        farmABI:bakerFarmABI,
+        address:"",
+        abi:"",
+        farm:"",
+        farmABI:"",
         token:"LKD "
     },
 ]
