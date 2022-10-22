@@ -4,14 +4,14 @@ import { getCirculatingSupply, getHoldings, getPrice } from "../../utils";
 import { ConnectContext } from "../../context/ConnectContext";
 import { data } from "../../data/pools";
 import { totalStakedFunc } from "../../contracts/pools";
-import BasicTable from "./Table";
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableCell from '@mui/material/TableCell';
-import TableContainer from '@mui/material/TableContainer';
-import TableHead from '@mui/material/TableHead';
-import TableRow from '@mui/material/TableRow';
-import Paper from '@mui/material/Paper';
+// import BasicTable from "./Table";
+// import Table from '@mui/material/Table';
+// import TableBody from '@mui/material/TableBody';
+// import TableCell from '@mui/material/TableCell';
+// import TableContainer from '@mui/material/TableContainer';
+// import TableHead from '@mui/material/TableHead';
+// import TableRow from '@mui/material/TableRow';
+// import Paper from '@mui/material/Paper';
 import "./Table.css"
 
 const Dashboard = () => {
@@ -106,7 +106,7 @@ const Dashboard = () => {
           <div className="fssd04">Active Pool</div>
         </div>
       </div>
-      <div className="fssd05">
+      {/* <div className="fssd05">
         <TableContainer component={Paper}>
           <Table sx={{ Width: '95%' }} aria-label="simple table">
             <TableHead>
@@ -124,7 +124,7 @@ const Dashboard = () => {
             </TableBody>
           </Table>
         </TableContainer>
-      </div>
+      </div> */}
     </>
   );
 };
