@@ -1,6 +1,6 @@
 import LKD from '../images/LKD.svg'
-import {LkdPool24,LkdPool18,LkdPoolS24,LkdPoolP24} from "../address"
-import {LkdPool24ABI,LkdPool18ABI,LkdPoolS24ABI,LkdPoolP24ABI} from "../abi"
+import {LkdPool24,LkdPool18,LkdPoolS24,LkdPoolP24,LkdPoolA124} from "../address"
+import {LkdPool24ABI,LkdPool18ABI,LkdPoolS24ABI,LkdPoolP24ABI,LkdPoolA124ABI} from "../abi"
 
 export const data = [
     {
@@ -58,5 +58,18 @@ export const data = [
         showAuditLog:false,
         depositOn:false,
         address:"0x076243CcA7648d3c93c72EE0caA1A373f478c85B"
+    },{
+        token:"Recurring Pool A1",
+        apr:"36.00%",
+        tvl:"-",
+        img:LKD,
+        pool:LkdPoolA124,
+        poolAbi:LkdPoolA124ABI,
+        contract:"https://bscscan.com/address/0x13A3ae11a23161c66eD859386D4207EF7310FE6b#code",
+        month:"24",
+        limit:"100000",
+        showAuditLog:true,
+        depositOn:true,
+        address:"0x13A3ae11a23161c66eD859386D4207EF7310FE6b"
     }
 ]
