@@ -4,20 +4,6 @@ import {LkdPool24ABI,LkdPool18ABI,LkdPoolS24ABI,LkdPoolP24ABI,LkdPoolA124ABI} fr
 
 export const data = [
     {
-        token:"Recurring Pool A",
-        apr:"36.00%",
-        tvl:"-",
-        img:LKD,
-        pool:LkdPool24,
-        poolAbi:LkdPool24ABI,
-        contract:"https://bscscan.com/address/0x68b7ee70ab8c692605f0f2345008398c0ec1a20b#code",
-        month:"24",
-        limit:"100000",
-        showAuditLog:true,
-        depositOn:true,
-        address:"0x68B7Ee70Ab8c692605F0f2345008398c0Ec1A20B"
-    },
-    {
         token:"Recurring Pool B",
         apr:"24.00%",
         tvl:"-",
@@ -30,6 +16,34 @@ export const data = [
         showAuditLog:true,
         depositOn:true,
         address:"0xd4769eb0cca4d29af46361052b55767e016df956"
+    },
+    {
+        token:"Recurring Pool A1",
+        apr:"36.00%",
+        tvl:"-",
+        img:LKD,
+        pool:LkdPoolA124,
+        poolAbi:LkdPoolA124ABI,
+        contract:"https://bscscan.com/address/0x13A3ae11a23161c66eD859386D4207EF7310FE6b#code",
+        month:"24",
+        limit:"100000",
+        showAuditLog:true,
+        depositOn:true,
+        address:"0x13A3ae11a23161c66eD859386D4207EF7310FE6b"
+    },
+    {
+        token:"Recurring Pool A",
+        apr:"36.00%",
+        tvl:"-",
+        img:LKD,
+        pool:LkdPool24,
+        poolAbi:LkdPool24ABI,
+        contract:"https://bscscan.com/address/0x68b7ee70ab8c692605f0f2345008398c0ec1a20b#code",
+        month:"24",
+        limit:"100000",
+        showAuditLog:true,
+        depositOn:true,
+        address:"0x68B7Ee70Ab8c692605F0f2345008398c0Ec1A20B"
     },
     {
         token:"Recurring Pool S24",
@@ -58,18 +72,5 @@ export const data = [
         showAuditLog:false,
         depositOn:false,
         address:"0x076243CcA7648d3c93c72EE0caA1A373f478c85B"
-    },{
-        token:"Recurring Pool A1",
-        apr:"36.00%",
-        tvl:"-",
-        img:LKD,
-        pool:LkdPoolA124,
-        poolAbi:LkdPoolA124ABI,
-        contract:"https://bscscan.com/address/0x13A3ae11a23161c66eD859386D4207EF7310FE6b#code",
-        month:"24",
-        limit:"100000",
-        showAuditLog:true,
-        depositOn:true,
-        address:"0x13A3ae11a23161c66eD859386D4207EF7310FE6b"
     }
 ]
