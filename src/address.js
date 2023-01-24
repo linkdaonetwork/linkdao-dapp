@@ -13,3 +13,4 @@ export const LkdToken = "0xaF027427DC6d31A3e7e162A710a5Fe27e63E275F" //linkdao t
 export const LkdPoolS24 = "0xed9a44c2a15Cda8f71AaBef6d11D10F377cB7200" //Linkdao pool mainnet
 export const LkdPoolP24 = "0x076243CcA7648d3c93c72EE0caA1A373f478c85B" //Linkdao pool mainnet
 export const LkdPoolA124 = "0x13A3ae11a23161c66eD859386D4207EF7310FE6b" //Linkdao pool mainnet
+export const LkdPoolA224 = "0x8182E0502e8A6f2d778Ed4B65340434Fc421925a" //Linkdao pool mainnet
